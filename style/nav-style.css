@@ -9,6 +9,10 @@ body
 
 .middle-page
 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   padding: 20px;
   margin: 5px 10px 0 5px; 
 
@@ -209,6 +213,14 @@ body.light select:-webkit-autofill:focus
   background-color: #D7D2C9;
 }
 
+body.light .icons a:has(span.fab.facebook), 
+body.light .icons a:has(span.fab.linkedIn), 
+body.light .icons a:has(span.fab.email),
+body.light .icons a:has(span.fab.whatsup),
+body.light .icons a:has(span.fab.github)
+{
+    color: #563A00; 
+}
 /*#endregion of light-mode*/
 
 /*#region of dark-mode*/
@@ -323,10 +335,16 @@ body.dark select:-webkit-autofill:focus
   background-color: #27231D;
 }
 
-/*body.dark .footer-icons
+body.dark .icons a:has(span.fab.facebook), 
+body.dark .icons a:has(span.fab.linkedIn), 
+body.dark .icons a:has(span.fab.email),
+body.dark .icons a:has(span.fab.whatsup),
+body.dark .icons a:has(span.fab.github)
 {
-  background-color: white;
-}*/
+    color: #DFB767; 
+}
+
+
 /*endregion of dark-mode*/
 
 /*#endregion of color-mode*/
@@ -474,6 +492,8 @@ a.download-button
   display: flex;
   justify-content: center;
   width: 300px;
+
+  align-self: center;
 }
 
 .panel
@@ -622,8 +642,7 @@ a.download-button
     justify-content: center;
   }
   body.light .footer-icons,
-  body.dark .footer-icons,
-  .footer-icons
+  body.dark .footer-icons
   {
     width: 15px;
     padding: 1px;
@@ -641,11 +660,54 @@ a.download-button
     padding: 1px;
     margin: 1px;
   }
+  .icon-text
+  {
+    font-size: x-small;
+  }
+  .icons a .layer span
+  {
+    width: 20px;
+    height: 20px;
+    max-width:20px;
+    max-height: 20px;
+  }
+  .icons
+  {
+    position: absolute;
 
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    gap: 5px !important;
+    margin-left: 0 !important;
+
+  }
+
+  .footer
+  {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start !important;
+  }
+  .footer-under-group
+  {
+    height: 22px !important;
+  }
 }
 
 @media screen and (max-width: 200px)
 {
+  .middle-page-columns,
+  .middle-page
+  {
+    border-radius: 5px;
+    margin: 0;
+    
+    padding: 0px;
+    border-radius: 5px;
+    align-items: center;
+  }
   .text,
   p,
   td,
@@ -653,11 +715,15 @@ a.download-button
   {
     font-size: x-small;
   }
-  .header-in-box
+  .header-in-box,
+  h3
   {
     font-size:smaller;
   }
-
+  h1
+  {
+    font-size:medium;
+  }
  .column-2of2 td,
  .column-1of2 td
  {
@@ -688,6 +754,33 @@ a.download-button
  .middle-page-columns
  {
   border-radius: 5px;
+ }
+
+ .footer-group, .footer-under-group
+ {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: column !important;
+  align-items:flex-start !important;
+  margin-top: 10px !important;
+ }
+ .icons
+ {
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  width: auto !important;
+  height: auto !important;
+ }
+ #withIcons
+ {
+  padding-bottom: 35px !important;
+ }
+ #links-in-footer
+ {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  padding: 0 !important;
  }
 }
 /*#endregion for different screen sizes*/
@@ -724,14 +817,8 @@ a.download-button
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-.footer-icons
-{
-  width: 30px;
-  height:max-content;
-
-  margin-right: 5px;
-  margin-left: 5px;
+  height: 30px;
+  margin-top: 15px;
 }
 
 .text-in-footer
@@ -745,4 +832,120 @@ a.download-button
   margin-right: 5px;
   margin-left: 5px;
 }
+
+/*#region of footer hover icons effect style*/
+.icons
+{
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  gap: 15px;
+
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+}
+
+.icons a .layer
+{
+    width: 30px;
+    height: 30px; 
+    transition: transform 0.3s;
+}
+
+.icons a:hover .layer
+{
+    transform: rotate(-35deg) skew(20deg);
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.icons a .layer span
+{
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    border: 1px solid; 
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.icons a .layer span.fab
+{
+    font-size: 30px;
+    line-height: 55px;
+    text-align: left;
+}
+
+.icons a:hover span:nth-child(1)
+{
+  opacity: 0.2;
+}
+
+.icons a:hover span:nth-child(2)
+{
+  opacity: 0.4; 
+  transform: translate(5px, -5px);
+}
+
+.icons a:hover span:nth-child(3)
+{
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+
+.icons a:hover span:nth-child(4)
+{
+  opacity: 0.8;
+  transform: translate(15px, -15px);
+}
+
+.fab, 
+.facebook,
+.email, 
+.linkedIn,
+.github
+{
+    position:relative;
+    background-size: cover;
+}
+a:hover .fab.facebook,  
+a:hover .fab.linkedIn,
+a:hover .fab.whatsup,
+a:hover .fab.email,
+a:hover .fab.github
+{
+  transform: translate(15px, -15px);
+}
+
+.facebook
+{
+  background-image: url('../files/images/facebook-color-svgrepo-com.svg');
+}
+.linkedIn
+{
+  background-image: url('../files/images/linkedin-svgrepo-com.svg');
+}
+.whatsup
+{
+  background-image: url('../files/images/whatsapp-svgrepo-com.svg');
+}
+.email
+{
+  background-image: url('../files/images/email-svgrepo-com.svg');
+}
+.github
+{
+  background-image: url('../files/images/github-svgrepo-com.svg');
+}
+.icons a 
+{
+    text-decoration: none;
+}
+/*#endregion of footer hover icons effect*/
 /*#endregion fo footer style*/

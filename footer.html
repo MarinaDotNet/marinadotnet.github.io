@@ -15,19 +15,77 @@
                 <div class="footer-under-group">
                     <p class="text text-in-footer footer-header">Contact:</p>
                 </div>
-               <div class="footer-under-group">
-                    <p class="text text-in-footer"><a class="button contact-icon" href="https://wa.me/+61433881789" title="Contact me via WhatsApp"><img class="footer-icons" alt="WhatsApp logo" src="./files/images/whatsapp-svgrepo-com.svg"/> </a></p>
-                    <p class="text text-in-footer"><a class="button contact-icon" href="mailto:msichova@outlook.com" title="Send me by email:"><img class="footer-icons" alt="Email icon" src="./files/images/email-svgrepo-com.svg"/></a></p>    
-                    <p class="text text-in-footer"><a class="button contact-icon" href="https://github.com/msichova" title="Look at my GitHub"><img class="footer-icons" alt="GitHub icon" src="./files/images/github-svgrepo-com.svg"/></a></p>    
-                    <p class="text text-in-footer"><a class="button contact-icon" href="https://www.facebook.com/msichova/" title="Contact to me via Facebook"><img class="footer-icons" alt="Facebook icon" src="./files/images/facebook-color-svgrepo-com.svg"/></a></p>    
-                    <p class="text text-in-footer"><a class="button contact-icon" href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" title="Contact to me via LinkedIn"><img class="footer-icons" alt="Linked icon" src="./files/images/linkedin-svgrepo-com.svg"/></a></p>    
+               <div class="footer-under-group" id="withIcons">
+                    <div class="icons">
+
+                        <a title="WhatsApp icon" href="https://wa.me/+61433881789" onmouseenter="showText('whatsup')" onmouseleave="showText('whatsup')">
+                            <div class="layer">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span class="fab whatsup">
+                                </span>
+                            </div>
+                            <div class="icon-text" id="whatsup" hidden>WhatsUp</div>
+                        </a>
+
+                        <a title="Send to me email" href="mailto:msichova@outlook.com" onmouseenter="showText('email')" onmouseleave="showText('email')">
+                            <div class="layer">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span class="fab email">
+                                </span>
+                            </div>
+                            <div class="icon-text" id="email" hidden>Email</div>
+                        </a>
+
+                        <a title="Look at my GitHub" href="https://github.com/msichova" onmouseenter="showText('github')" onmouseleave="showText('github')">
+                            <div class="layer">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span class="fab github">
+                                </span>
+                            </div>
+                            <div class="icon-text" id="github" hidden>GitHub</div>
+                        </a>
+
+                        <a title="Contact to me via Facebook" href="https://www.facebook.com/msichova/" onmouseenter="showText('facebook')" onmouseleave="showText('facebook')">
+                            <div class="layer">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span class="fab facebook">
+                                </span>
+                            </div>
+                            <div class="icon-text" id="facebook" hidden>Facebook</div>
+                        </a>
+
+                        <a title="Contact to me via LinkedIn" href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" onmouseenter="showText('linkedIn')" onmouseleave="showText('linkedIn')">
+                            <div class="layer">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span class="fab linkedIn">
+                                </span>
+                            </div>
+                            <div class="icon-text" id="linkedIn" hidden>LinkedIn</div>
+                        </a>
+
+                    </div>
                 </div>
             </div>
             <div class="footer-group">
                 <div class="footer-under-group">
                     <p class="text footer-header">Third Parties:</p>
                 </div>
-                <div class="footer-under-group">
+                <div class="footer-under-group" id="links-in-footer">
                     <p class="text text-in-footer"><a class="text-link" href="https://www.svgrepo.com/" title="The icons used on the website from this third-party website">Icons</a></p>
                     <p class="text text-in-footer"><a class="text-link" href="https://heropatterns.com/" title="The backgrounds used on the website from this third-party website">Backgrounds</a></p>
                     <p class="text text-in-footer"><a class="text-link" href="https://www.freecodecamp.org/news/how-to-handle-dark-mode-with-css-and-javascript/" title="SVG tutorial used for color-change mode buttons">Mode icons</a></p>
