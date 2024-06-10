@@ -116,7 +116,7 @@ function setNavBarActiveButton()
    const navItems = Array.from(document.getElementsByClassName('nav-button'));
    navItems.forEach(el => 
     {
-        if(el.id === document.body.id)
+        if(el.id === (document.body.id.substring(0, document.body.id.length-1)))
         {
             el.classList.add('active');
         }
@@ -196,7 +196,8 @@ function accordion(id)
 //#endregion pages functionality
 
 //#region of some animations
-function typeSentence(id, sentence) {
+function typeSentence(id, sentence) 
+{
     //caret symbol, for imitation of typing text
     const carret = '_';
     //index of the last printed symbol 
@@ -220,4 +221,11 @@ function typeSentence(id, sentence) {
         }
     }, 100);
 }
+
+function showText(id)
+{
+    const element = document.getElementById(id);
+    element.toggleAttribute("hidden");
+}
 //#endregion of some animations
+
