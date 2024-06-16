@@ -214,9 +214,9 @@ body.light select:-webkit-autofill:focus
 }
 
 body.light .icons a:has(span.fab.facebook), 
-body.light .icons a:has(span.fab.linkedIn), 
+body.light .icons a:has(span.fab.linkedin), 
 body.light .icons a:has(span.fab.email),
-body.light .icons a:has(span.fab.whatsup),
+body.light .icons a:has(span.fab.whatsapp),
 body.light .icons a:has(span.fab.github)
 {
     color: #563A00; 
@@ -336,9 +336,9 @@ body.dark select:-webkit-autofill:focus
 }
 
 body.dark .icons a:has(span.fab.facebook), 
-body.dark .icons a:has(span.fab.linkedIn), 
+body.dark .icons a:has(span.fab.linkedin), 
 body.dark .icons a:has(span.fab.email),
-body.dark .icons a:has(span.fab.whatsup),
+body.dark .icons a:has(span.fab.whatsapp),
 body.dark .icons a:has(span.fab.github)
 {
     color: #DFB767; 
@@ -908,15 +908,16 @@ a.download-button
 .fab, 
 .facebook,
 .email, 
-.linkedIn,
-.github
+.linkedin,
+.github,
+.whatsapp
 {
     position:relative;
     background-size: cover;
 }
 a:hover .fab.facebook,  
-a:hover .fab.linkedIn,
-a:hover .fab.whatsup,
+a:hover .fab.linkedin,
+a:hover .fab.whatsapp,
 a:hover .fab.email,
 a:hover .fab.github
 {
@@ -927,11 +928,11 @@ a:hover .fab.github
 {
   background-image: url('../files/images/facebook-color-svgrepo-com.svg');
 }
-.linkedIn
+.linkedin
 {
   background-image: url('../files/images/linkedin-svgrepo-com.svg');
 }
-.whatsup
+.whatsapp
 {
   background-image: url('../files/images/whatsapp-svgrepo-com.svg');
 }
