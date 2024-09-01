@@ -425,7 +425,7 @@ function addDivWithIcons()
     const icons = {
         "WhatsApp":"https://wa.me/+61433881789", 
         "Email":"mailto:msichova@outlook.com", 
-        "GitHub":"https://github.com/msichova", 
+        "GitHub":"https://github.com/marinadotnet", 
         "Facebook":"https://www.facebook.com/msichova/", 
         "LinkedIn":"https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au"
     };
