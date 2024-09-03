@@ -14,6 +14,11 @@ function setColorMode()
         element.setAttribute("display", "none");
     }
     setModeToElements();
+
+    if(document.body.id == "home.")
+    {
+        setSourceOfImageAtHome(document, color);
+    }
 }
 /*
  * When the color change button is pressed:
@@ -33,8 +38,37 @@ function toggleColorMode()
     // Hide the current color-mode icon and display the opposite one
     document.getElementById(color + "-icon").setAttribute("display", "none");
     document.getElementById(color === "dark" ? "light-icon" : "dark-icon").setAttribute("display", "flex");
+
+    if(document.body.id == "home.")
+    {
+        setSourceOfImageAtHome(document, color);
+    }
 }
 
+/**
+ * Sets the source of the portfolio image on the homepage based on the selected color mode.
+ * 
+ * @param {Document} domDocument - The document object representing the DOM.
+ * @param {string} color - The color mode, either "dark" or "light".
+ * 
+ * If the color mode is "dark", the image source is set to the dark mode version.
+ * If the color mode is "light", the image source is set to the light mode version.
+ * If the color mode is not recognized, it defaults to the light mode version.
+ */
+function setSourceOfImageAtHome(domDocument, color)
+{
+    if(domDocument.getElementById("portfolioImage"))
+    {
+        domDocument.getElementById("portfolioImage").src = 
+            color === "dark" ?
+            './files/images/photoDarkMode.jpg':
+            './files/images/photoLightMode.jpg';
+    }
+    else
+    {
+        console.warn("The Element with ID : 'portfolioImage', was not found.");
+    }
+}
 //#region Helper Methods for Set Color Mode
 
 /*

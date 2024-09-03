@@ -40,11 +40,32 @@ body
     width: 40%;
 }
 
+.middle-page-right-side-index
+{
+    width: 100%;
+    margin: 5%;
+    padding: 5%;
+}
+.middle-page-left-side-index
+{
+    width: 100%;
+    margin: 1%;
+    padding: 1%;
+}
+
+
 .contact-form
 {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+}
+
+img.photo
+{
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
 }
 /*#endregion of page compnents main*/
 
@@ -221,6 +242,11 @@ body.light .icons a:has(span.fab.github)
 {
     color: #563A00; 
 }
+
+body.light img.photo
+{
+  border: 1px solid #563a00;
+}
 /*#endregion of light-mode*/
 
 /*#region of dark-mode*/
@@ -344,7 +370,10 @@ body.dark .icons a:has(span.fab.github)
     color: #DFB767; 
 }
 
-
+body.dark img.photo
+{
+  border: 1px solid #e5c585;
+}
 /*endregion of dark-mode*/
 
 /*#endregion of color-mode*/
