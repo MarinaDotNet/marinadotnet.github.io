@@ -7,7 +7,7 @@
 */
 function setColorMode()
 {
-    let color = getUserPreferedColorScheme();
+    const color = getUserPreferredColorScheme();
     const element =  document.getElementById(color + "-icon");
     if(element !== null)
     {
@@ -15,7 +15,7 @@ function setColorMode()
     }
     setModeToElements();
 
-    if(document.body.id == "home.")
+    if(document.body.id == "home" || document.body.id == "contact")
     {
         setSourceOfImageAtHome(document, color);
     }
@@ -28,7 +28,7 @@ function setColorMode()
 */
 function toggleColorMode()
 {
-    let color = getUserPreferedColorScheme();
+    let color = getUserPreferredColorScheme();
     // Swap the color mode
     color = color === "light" ? "dark" : "light";
     // Save the color mode preference
@@ -39,7 +39,7 @@ function toggleColorMode()
     document.getElementById(color + "-icon").setAttribute("display", "none");
     document.getElementById(color === "dark" ? "light-icon" : "dark-icon").setAttribute("display", "flex");
 
-    if(document.body.id == "home.")
+    if(document.body.id == "home" || document.body.id == "contact")
     {
         setSourceOfImageAtHome(document, color);
     }
@@ -51,8 +51,7 @@ function toggleColorMode()
  * @param {Document} domDocument - The document object representing the DOM.
  * @param {string} color - The color mode, either "dark" or "light".
  * 
- * If the color mode is "dark", the image source is set to the dark mode version.
- * If the color mode is "light", the image source is set to the light mode version.
+ * Sets the image source depending on the color mode.
  * If the color mode is not recognized, it defaults to the light mode version.
  */
 function setSourceOfImageAtHome(domDocument, color)
@@ -76,7 +75,7 @@ function setSourceOfImageAtHome(domDocument, color)
 */
 function setModeToElements()
 {
-    const colorModeAdd = getUserPreferedColorScheme();
+    const colorModeAdd = getUserPreferredColorScheme();
     // Determine opposite color mode
     const colorModeRemove = colorModeAdd === "dark" ? "light" : "dark"; 
     manageClasses(document.body, colorModeAdd, colorModeRemove);
@@ -116,7 +115,7 @@ function addRemoveClasses(element, toAdd, toRemove)
  * Retrieves the user's preferred color scheme from local storage or browser settings.
  * If not previously set, defaults to 'light' or 'dark' based on system preferences.
  */
-function getUserPreferedColorScheme()
+function getUserPreferredColorScheme()
 {
     let color = localStorage['colorScheme'];
     if(typeof color === "undefined")
@@ -138,7 +137,7 @@ function setNavBarActiveButton()
    const navItems = Array.from(document.getElementsByClassName('nav-button'));
    navItems.forEach(el => 
     {
-        if(el.id === (document.body.id.substring(0, document.body.id.length-1)))
+        if(el.id === document.body.id)
         {
             el.classList.add('active');
         }
@@ -174,21 +173,37 @@ function accordion(id)
     accordion.innerHTML = (accordion.innerHTML.substring(0, accordion.innerHTML.length - char.length)) +  char;
 
     accordion.nextElementSibling.style.display = isActive ? "block" : "none";
-
     // Ensures only one accordion is active at a time
     const accordionsAll = Array.from(document.getElementsByClassName('accordion'));
-   for(const acc of accordionsAll)
+    for(const acc of accordionsAll)
     {
         if(acc != accordion && acc.classList.contains('active'))
         {
             acc.classList.remove('active');
             acc.nextElementSibling.style.display = "none";
-
+                
             const collapsedChar = '<b>︾</b></span>';
-            //inserting symbole at the end of innerHTML
+            //inserting symbol at the end of innerHTML
             acc.innerHTML = (acc.innerHTML.substring(0, acc.innerHTML.length - collapsedChar.length)) +  collapsedChar;
         }
     }
+
+    if(accordion.classList.contains('main-accordion'))
+    {
+        const allMainAccordions = Array.from(document.getElementsByClassName('main-accordion'));
+        for(const acc of allMainAccordions)
+        {
+            if(acc != accordion && acc.classList.contains('active'))
+            {
+                acc.classList.remove('active');
+                acc.nextElementSibling.style.display = "none";     
+                const collapsedChar = '<b>︾</b></span>';
+                //inserting symbol at the end of innerHTML
+                acc.innerHTML = (acc.innerHTML.substring(0, acc.innerHTML.length - collapsedChar.length)) +  collapsedChar;
+            }
+        }
+    }
+    
 }
 
 //#endregion pages functionality
@@ -198,7 +213,7 @@ function accordion(id)
 // Simulates typing effect for a sentence in the specified element.
 function typeSentence(id, sentence) 
 {
-    const carret = '_';
+    const caret = '_';
     let index = 0;
     const element = document.getElementById(id);
     const interval = setInterval(() => {
@@ -208,8 +223,8 @@ function typeSentence(id, sentence)
                 element.innerHTML = element.innerHTML.substring(0, index);
             }
             element.innerText += sentence[index-1] === ' ' ? 
-                ' ' + sentence[index++] + carret : 
-                sentence[index++] + carret;
+                ' ' + sentence[index++] + caret : 
+                sentence[index++] + caret;
             
         } else {
             clearInterval(interval);
@@ -246,8 +261,8 @@ function addHtmlElement(tag, classList, attributeList, attributeToggle)
     addClasses(element, classList);
     // Add attributes to the element
     addAttributes(element, attributeList);
-    // Toggle attribues on the element
-    toggleAtribute(element, attributeToggle);
+    // Toggle attributes on the element
+    toggleAttribute(element, attributeToggle);
 
     return element;
 }
@@ -303,7 +318,7 @@ function addAttributes(element, listAttributes)
 }
 
 // Function to toggle attributes on an HTML element
-function toggleAtribute(element, attribute)
+function toggleAttribute(element, attribute)
 {
     // Check if attribute is an array and not empty
     if(Array.isArray(attribute) && attribute.length > 0)
@@ -326,7 +341,7 @@ function toggleAtribute(element, attribute)
 function addNavBar()
 {
     // Create main div element for the navigation bar
-    const mainDiv = addHtmlElement("div", ["nav-bar-roud-box"], {"id":"nav"}, "");
+    const mainDiv = addHtmlElement("div", ["nav-bar-round-box"], {"id":"nav"}, "");
 
     // Append mainDiv to navigation element in HTML
     document.getElementById("navigation").appendChild(mainDiv);
@@ -334,7 +349,7 @@ function addNavBar()
     // Add color mode button, navigation buttons, and hamburger button to mainDiv
     mainDiv.appendChild(addColorModeButton());
     mainDiv.appendChild(addNavigateButtons());
-    mainDiv.appendChild(addHumburgerButton());
+    mainDiv.appendChild(addHamburgerButton());
 }
 
 //#region  addNavBar() Helper Methods
@@ -386,19 +401,19 @@ function addNavigateButtons()
 }
 
 // Function to add the hamburger button
-function addHumburgerButton()
+function addHamburgerButton()
 {
-    const humburgerButton = addHtmlElement("a", ["humburger-icon"], {"href": "javascript:void(0);", "title":"icon-humburger", "onclick":"collapsedNavBar();"}, "");
+    const hamburgerButton = addHtmlElement("a", ["hamburger-icon"], {"href": "javascript:void(0);", "title":"icon-hamburger", "onclick":"collapsedNavBar();"}, "");
     
      // Add SVG icon for hamburger button
-    humburgerButton.innerHTML = `
-        <svg height='30' width='30' id='humburger' viewBox='5 5 30 30'>
-            <line id='humburgerLine1' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='25' x2='30' y2='25'></line>
-            <line id='humburgerLine2' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='17.5' x2='30' y2='17.5'></line>
-            <line id='humburgerLine3' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='10' x2='30' y2='10'></line>
+    hamburgerButton.innerHTML = `
+        <svg height='30' width='30' id='hamburger' viewBox='5 5 30 30'>
+            <line id='hamburgerLine1' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='25' x2='30' y2='25'></line>
+            <line id='hamburgerLine2' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='17.5' x2='30' y2='17.5'></line>
+            <line id='hamburgerLine3' stroke='#B88A13' stroke-width='3' stroke-linecap='round' x1='0' y1='10' x2='30' y2='10'></line>
         </svg>`;
 
-    return humburgerButton;
+    return hamburgerButton;
 }
 
 //#endregion addNavBar() Helper Methods
@@ -439,7 +454,7 @@ function addFooterGroups()
         }
         else
         {
-            p.innerText = "Third Praties:"
+            p.innerText = "Third Parties:"
             const underGroup2 = addHtmlElement("div", ["footer-under-group"], {"id":"links-in-footer"}, "");
 
             // Populate links for third parties

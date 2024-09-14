@@ -7,475 +7,703 @@
         <link rel="stylesheet" href="./style/nav-style.css">
         <script src="./function/functions.js"></script>
     </head>
-    <body id="projects.">
+    <body id="projects">
         <div class="header">
             <div id="navigation"></div>
         </div>
 
         <div class="middle-page" id="middle"> 
-            <p class="header-in-box">Book Shop project</p>
+
+            <button id="headAcc1" type="button" class="main-accordion header-in-box" onclick="accordion(id);"><span>Book Shop project <b>︾</b></span></button>
+            <div class="panel">
+                <button id="acc1" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>BookShop.API: <b>︾</b></span></button>
+                <div class="panel">
+                    <p><b class="special-text">In this project used:</b><br/>
+                        MongoDB Atlas Shared replica set for storing/retrieving books collection and local SQL database for storing user accounts.
+                    </p>
+                    <p><b class="special-text">API Security:</b><br/>
+                        API version headers, JWT tokens, API key and SQL database for Authorization and Authentication
+                    </p>
+                    <p>Async methods in API, providing the ability to handle several concurrent HTTP requests. They are not blocking the main thread while waiting for the database response.
+                        This API consumes and produces data in Json format, because this format is simple and lightweight.
+                    </p>
+                    <p><b class="special-text">Current API supports 3 API-Versions:</b>
+                        <ol>
+                            <li class="text">First API-Version is for Admin access only.</li>
+                            <li class="text">Second API-Version for User's access.</li>
+                            <li class="text">Third API-Version for not Signed in users, for guests.</li>
+                        </ol>
+                    </p>
+                    <p><b class="special-text">Mongo Atlas</b> 
+                        Shared Replica set contains all data about books library.
+                    </p>
+                    <table class="full-page">
+                        <thead>
+                            <tr>
+                                <th>Field in MongoDB:</th>
+                                <th>Data type in MongoDB:</th>
+                                <th>Data type in C#:</th>
+                                <th>Field name in C# class:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>			
+                                <td>_id</td>
+                                <td>ObjectId</td>
+                                <td>string</td>
+                                <td>Id</td>
+                            </tr>
+                            <tr>
+                                <td>annotation</td>
+                                <td>String</td>
+                                <td>string</td>
+                                <td>Annotation</td>
+                            </tr>
+                            <tr>
+                                <td>author</td>
+                                <td>String</td>
+                                <td>string</td>
+                                <td>Author</td>
+                            </tr>
+                            <tr>
+                                <td>available</td>
+                                <td>Boolean</td>
+                                <td>bool</td>
+                                <td>IsAvailable</td>
+                            </tr>
+                            <tr>
+                                <td>book</td>
+                                <td>String</td>
+                                <td>string</td>
+                                <td>Title</td>
+                            </tr>
+                            <tr>
+                                <td>genre</td>
+                                <td>Array String</td>
+                                <td>string[]</td>
+                                <td>Genres</td>
+                            </tr>
+                            <tr>
+                                <td>language</td>                 
+                                <td>String</td>
+                                <td>string</td>
+                                <td>Language</td>
+                            </tr>
+                            <tr>
+                                <td>link</td>
+                                <td>String</td>
+                                <td>Uri</td>
+                                <td>Link</td>
+                            </tr>
+                            <tr>
+                                <td>price</td>
+                                <td>Decimal128</td>
+                                <td>decimal</td>
+                                <td>Price</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>SQL used for Authentication and Authorization for API and to store Orders details for each user.<br/>
+                        This project uses the standard ASP.NET Identity tables. Only was added custom table dbo.Orders:
+                    </p>
+                    <table class="full-page">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Key</th>
+                                <th>Data Type</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>			
+                                <td>OrderId</td>
+                                <td>PK</td>
+                                <td>nvarchar(450)</td>
+                                <td>not null</td>
+                            </tr>
+                            <tr>
+                                <td>UserId</td>
+                                <td>FK</td>
+                                <td>nvarchar(450)</td>
+                                <td>not null</td>
+                            </tr>
+                            <tr>
+                                <td>ProductsId</td>
+                                <td></td>
+                                <td>nvarchar(max)</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td>TotalPrice</td>
+                                <td></td>
+                                <td>decimal(18,2)</td>
+                                <td>not null</td>
+                            </tr>
+                            <tr>
+                                <td>OrderDateTime</td>
+                                <td></td>
+                                <td>datetime2(7)</td>
+                                <td>not null</td>
+                            </tr>
+                            <tr>
+                                <td>SubmittedOrder</td>
+                                <td></td>
+                                <td>bit</td>
+                                <td>not null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text">For API-Version:3, don't need to provide JWT token. But this versions only supports some GET methods 
+                        from StockController.cs and POST methods from AuthenticationConroller.cs to register new account only.<br>
+                        The list of all methods and supporting API-Version for each method could be found at the end of this page.<br/>
+                        API-Version:1 supports all methods of API (GET, POST, PUT, DELETE), for access to it requires: 
+                        api-key and valid JWT token.<br>
+                        To abtain JWT token, required provide api-key and correct admin loging details, 
+                        after thet API will generate JWT token that valid for 1 hour.<br>
+                        For default accounts the token sends via http request message, otherwise sends token to the email.
+                    </p>
+                </div>
+                <button id="acc2" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>AuthenticationV Controller: <b>︾</b></span></button>
+                <div class="panel"> 
+                    <table class="full-page">
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method post">POST</span>/authorization/loging</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Generates token for Authorization.<br/>
+                            If user signing in one of default accounts, then token returning into ObjectResult.<br/>
+                            If user signing in to own account(with real email address), token would be send to the account email.<br/>
+                            Default Admin account:<br/>
+                            "userEmail: admin@msichova.com"<br/>"password: P@ssw0rd"<br/>
+                            Default User account:<br/>
+                            "userEmail: user@msichova.com"<br/>"password: P@ssw0rd"</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1, supports only to sign under administration accounts</td></tr>
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method post">POST</span>/authorization/register</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Registering new account.<br/>
+                            If specified API-Version is 'ApiVersion-BooksStore: 1' 
+                            registrated account automatically adds admin role.<br/>
+                            If specified API-Version is 'ApiVersion-BooksStore: 2' 
+                            registrated account automatically adds only user role.</td></tr>
+
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requires unique username, unique email, and password.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/authorization/password/reset/foranother</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Resets password for any account</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requieres: to be signed in under admin account.<br/>Has to provide: correct 
+                            registrated email and correct current password for this account and new password</td></tr>
+
+                        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method post">POST</span>/authorization/password/reset</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Resets password for currently signed in account</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requires to be signed in and provide correct current password for this account.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method delete">DELETE</span>/authorization/account/delete</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes currently signed in account</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requires to be signed in and provide correct current password for this account.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method delete">DELETE</span>/authorization/account/delete/anotheruser</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes an account</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in as admin and to provide correct data for account that needs to be deleted.</td></tr>
+                    </table>  
+                </div>
+
+                <button id="acc3" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>OrderV Controller: <b>︾</b></span></button>
+                <div class="panel">
+                    <table class="full-page">
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method post">POST</span>/order</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Creates new order if user signed in and doesn't have currently unsubmitted orders.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in and have unsubmitted orders</td></tr>
+                                                    
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/order/products/add</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Adds products to existing order</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to provide valid product/products id, that currently is available at database and valid order id.
+                                Adds products if current order exists in database for currently signed in user and not submitted yet.</td></tr>
+                                
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/order/products/delete</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes products from existing order for currently signed in user</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requered to provide order id and product id<br/>Deletes requested product/products from order, if current order exists in database for currently signed in user and not submitted yet.</td></tr>
+                        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/order/submit</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Submits order</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in and provide valid (for currently signed in user) and valid order id, currently unsubmitted.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/order/products/delete</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes requested products by id from unsubmitted yet order</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in and provide valid (for currently signed in user)<br/>and valid order id and product id/ids that needs to be deleted.<br/>Order shoud not be submitted yet.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>/account/order/unsubmit</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Unsubmits order</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in as admin and provide existing order id. Available access to all orders in database(for any user).<br/>Order shoud not be submitted.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/order/details</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Gets requested order details</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in and provide order id. If signed in as admin can access to any order in database, if signed in as user can access only own orders.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/order/all</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Gets all orders for currently signed in user.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in. Gets only own orders for signed in user.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method delete">DELETE</span>/order/delete</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes requested order.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required to be signed in as admin. Deletes any existing order.</td></tr>
+                    </table>
+                </div>
+                                        
+                <button id="acc4" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>StockV Controller: <b>︾</b></span></button>
+                <div class="panel">
+                    <table class="full-page">
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/all</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Retrieves all data from database.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td id="GET/books/page" name="GET/books/page"><span class="http-method get">GET</span>/books/page</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns a list of requested products for requested page</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Returns list of requested quantity of products for requested page.<br/>
+                            The list is sorted in requested order, by requested parameter(by Title or by Author or by Price).<br/>
+                            If not specified sorting order && parameter for order, then its uses default parameters: descending order by Price.<br/>
+                            If requested page < 1, then returns page 1, if requested page is larger then total pages, then returns last page.<br/>
+                            The requested quantity of products per page should be in range 5 to 30. If requested quantity < 5 returns 5 products, if > 30 returns 30.<br/>
+                            For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/book/id</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns product with requested id.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>For ApiVersion-BooksStore : 2 and ApiVersion-BooksStore: 3, retrieves only were parameter “isAvailable” : true</td></tr>
+                        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/available</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns list of products where parameter isAvailable equals requested true or false.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/available/page</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns list of products where parameter isAvailable equals requested true or false, at requested page with requested quantity</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Deviding content into pages as in: <a class="text-link" href="#GET/books/page">GET/books/page method</a></td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/genres</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns a list of all product's genres in database</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>For ApiVersions 2 and 3 returns genres where at least one product isAvailable == true</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/genre</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns a list of products under requested genre, on requested page and requested quantity</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersions 2 and 3 returns genres where at least one product isAvailable == true.</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/filter/condition/equals</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns list of ALL products where Title, Author, Language or one of item from array of Genres EQUALS to searchCondition.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersion: 2 returns only products where isAvailable == true.</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/filter/condition/contains</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns list of ALL products where Title, Author, Language or one of item from array of Genres CONTAINS the searchCondition.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersion: 2 returns only products where isAvailable == true.</td></tr>
+
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/filter</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Sorts the list of all products by requested parameters. For each specified parameter that contains data.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Filters the list by each provided parameter. Exception if IsAvailable was not specified, then its sets as false for ApiVersion 1, and always sets to true for ApiVersions 2 and 3. Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a></td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method post">POST</span>/book/add</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Adds new book/data in database. Requires entering all data, except the Id, Id generated automatically</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method delete">DELETE</span>/book/delete</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Deletes product under requested id.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required valid product id</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method put">PUT</span>//book/update</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Updates product under requested id with provided data.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Required valid product id.<br/>If some parameters was not specified, then it keeps old data for this parameters.</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/count/all</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns quantity of all products in database.</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true.</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/count/available</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns quantity of products where products as requested isAvailable == true or false</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Requered to specify isAvailable == true or false</td></tr>
+        
+                        <tr><th>Method API:</th></tr>
+                        <tr><td><span class="http-method get">GET</span>/books/count/ingenre</td></tr>
+                        <tr><th>Description:</th></tr>
+                        <tr><td>Returns quantity of products under specified genre</td></tr>
+                        <tr><th>API Versions supported:</th></tr>
+                        <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
+                        <tr><th>Additional notes:</th></tr>
+                        <tr><td>Reguered to specify valid genre.<br/>For ApiVersion: 2 counts only products with parameter isAvailable == true. Could return 0 if there nor products under specified conditions</td></tr>
+                </table>
+                </div>
+            </div><!--main panel for Book Shop project-->
+           <!--<p class="header-in-box">Book Shop project</p>--> 
             <p>Project contains: BookShop.API - RESTful Web API and BookShop.WebApplication - MVC ASP.NET Core Web App.<br>
-                To review this project on GitHub <a class="text-link" href="https://github.com/MarinaDotNet/BookShop" title="BookShop.API GitHub repository"> please follow this link</a>.</p>
-            <p>BooksShop.API is an ASP.NET Core controller-based RESTful Web API for e-comerce Book Store website that uses Mongo Atlas shared Replica Set database for retriving products(books information) and local SQL (localdb)\MSSQLLocalDB Server for user accounts and orders.
-                Requiers: internet connection and SQL Server (localdb)\MSSQLLocalDB with out password. 
+                To review this project on GitHub <a class="text-link" href="https://github.com/MarinaDotNet/BookShop" title="BookShop.API GitHub repository"> please follow this link</a>.
+            </p>
+            <p>BooksShop.API is an ASP.NET Core controller-based RESTful Web API for e-comerce Book Store website that uses Mongo Atlas shared Replica Set database for retrieving products(books information) and local SQL (localdb)\MSSQLLocalDB Server for user accounts and orders.
+                Requiers: internet connection and SQL Server (localdb)\MSSQLLocalDB with out password.
             </p>
 
-            <button id="acc1" type="button" class="accordion header-in-box" onclick="accordion('acc1');"><span>BookShop.API: <b>︾</b></span></button>
+            
+            <button id="headAcc2" type="button" class="main-accordion header-in-box" onclick="accordion(id);"><span>Astro Multi-Application System <b>︾</b></span></button>
             <div class="panel">
-                <p><b class="special-text">In this project used:</b><br/>
-                    MongoDB Atlas Shared replica set for storing/retriving books collection and local SQL database for storing user accounts.
+                <p>
+                    The system consists of four main components:
+                    <ul>
+                        <li><b>ServiceContract:</b> A .NET Console Server Application running continuously and provides calculation services over a private network. It references the AstroMath.dll library and communicates with clients via the Windows Communication Foundation (WCF).</li>
+                        <li><b>ClientApplication:</b> A Windows Forms Client Application that connects to the ServiceContract using Named Pipes and WCF for inter-process communication. This application provides a user-friendly interface for inputting parameters and receiving calculated results.</li>
+                        <li><b>AstroMath:</b> A custom DLL (AstroMath.dll) developed to perform the core astronomical calculations such as star velocity, distance, temperature conversions (Celsius to Kelvin), and black hole event horizons.</li>
+                        <li><b>TestClientServiceContract:</b> A Console Test Client Application that verifies and tests the connection between the ServiceContract and the client applications. It ensures that the server-client communication is functioning correctly before deployment.</li>
+                    </ul>
                 </p>
-                <p><b class="special-text">API Security:</b><br/>
-                    API version headers, JWT tokens, API key and SQL database for Authorization and Authentication
-                </p>
-                <p>Async methods in API, providing the ability to handle several concurrent HTTP requests. They are not blocking the main thread while waiting for the database response.
-                    This API consumes and produces data in Json format, because this format is simple and lightweighted.
-                </p>
-                <p><b class="special-text">Current API supports 3 API-Versions:</b>
-                    <ol>
-                        <li class="text">First API-Version is for Admin access only.</li>
-                        <li class="text">Second API-Version for User's access.</li>
-                        <li class="text">Third API-Version for not Signed in users, for guests.</li>
-                    </ol>
-                </p>
-                <p><b class="special-text">Mongo Atlas</b> 
-                    Shared Replica set contains all data about books library.
-                </p>
-                <table class="full-page">
-                    <thead>
-                        <tr>
-                            <th>Field in MongoDB:</th>
-                            <th>Data type in MongoDB:</th>
-                            <th>Data type in C#:</th>
-                            <th>Field name in C# class:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>			
-                            <td>_id</td>
-                            <td>ObjectId</td>
-                            <td>string</td>
-                            <td>Id</td>
-                        </tr>
-                        <tr>
-                            <td>annotation</td>
-                            <td>String</td>
-                            <td>string</td>
-                            <td>Annotation</td>
-                        </tr>
-                        <tr>
-                            <td>author</td>
-                            <td>String</td>
-                            <td>string</td>
-                            <td>Author</td>
-                        </tr>
-                        <tr>
-                            <td>available</td>
-                            <td>Boolean</td>
-                            <td>bool</td>
-                            <td>IsAvailable</td>
-                        </tr>
-                        <tr>
-                            <td>book</td>
-                            <td>String</td>
-                            <td>string</td>
-                            <td>Title</td>
-                        </tr>
-                        <tr>
-                            <td>genre</td>
-                            <td>Array String</td>
-                            <td>string[]</td>
-                            <td>Genres</td>
-                        </tr>
-                        <tr>
-                            <td>language</td>                 
-                            <td>String</td>
-                            <td>string</td>
-                            <td>Language</td>
-                        </tr>
-                        <tr>
-                            <td>link</td>
-                            <td>String</td>
-                            <td>Uri</td>
-                            <td>Link</td>
-                        </tr>
-                        <tr>
-                            <td>price</td>
-                            <td>Decimal128</td>
-                            <td>decimal</td>
-                            <td>Price</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>SQL used for Authentication and Authorization for API and to store Orders details for each user.<br/>
-                    This project uses the standart ASP.NET Identity tables. Only was added custom table dbo.Orders:
-                </p>
-                <table class="full-page">
-                    <thead>
-                        <tr>
-                            <th>Order</th>
-                            <th>Key</th>
-                            <th>Data Type</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>			
-                            <td>OrderId</td>
-                            <td>PK</td>
-                            <td>nvarchar(450)</td>
-                            <td>not null</td>
-                        </tr>
-                        <tr>
-                            <td>UserId</td>
-                            <td>FK</td>
-                            <td>nvarchar(450)</td>
-                            <td>not null</td>
-                        </tr>
-                        <tr>
-                            <td>ProductsId</td>
-                            <td></td>
-                            <td>nvarchar(max)</td>
-                            <td>null</td>
-                        </tr>
-                        <tr>
-                            <td>TotalPrice</td>
-                            <td></td>
-                            <td>decimal(18,2)</td>
-                            <td>not null</td>
-                        </tr>
-                        <tr>
-                            <td>OrderDateTime</td>
-                            <td></td>
-                            <td>datetime2(7)</td>
-                            <td>not null</td>
-                        </tr>
-                        <tr>
-                            <td>SubmittedOrder</td>
-                            <td></td>
-                            <td>bit</td>
-                            <td>not null</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="text">For API-Version:3, don't need to provide JWT token. But this versions only supports some GET methods 
-                    from StockController.cs and POST methods from AuthenticationConroller.cs to register new account only.<br>
-                    The list of all methods and supporting API-Version for each method could be found at the end of this page.<br/>
-                    API-Version:1 supports all methods of API (GET, POST, PUT, DELETE), for access to it requires: 
-                    api-key and valid JWT token.<br>
-                    To abtain JWT token, required provide api-key and correct admin loging details, 
-                    after thet API will generate JWT token that valid for 1 hour.<br>
-                    For default accounts the token sends via http request message, otherwise sends token to the email.
-                </p>
-            </div>
-            <button id="acc2" type="button" class="accordion header-in-box" onclick="accordion('acc2');"><span>AuthenticationV Controller: <b>︾</b></span></button>
-            <div class="panel"> 
-                <table class="full-page">
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method post">POST</span>/authorization/loging</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Generates token for Authorization.<br/>
-                        If user signing in one of default accounts, then token returning into ObjectResult.<br/>
-                        If user signing in to own account(with real email address), token would be send to the account email.<br/>
-                        Default Admin account:<br/>
-                        "userEmail: admin@msichova.com"<br/>"password: P@ssw0rd"<br/>
-                        Default User account:<br/>
-                        "userEmail: user@msichova.com"<br/>"password: P@ssw0rd"</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1, supports only to sign under administration accounts</td></tr>
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method post">POST</span>/authorization/register</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Registering new account.<br/>
-                        If specified API-Version is 'ApiVersion-BooksStore: 1' 
-                        registrated account automatically adds admin role.<br/>
-                        If specified API-Version is 'ApiVersion-BooksStore: 2' 
-                        registrated account automatically adds only user role.</td></tr>
+                <button id="acc5" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Features: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>
+                        <ul>
+                            <li><b class="special-text">Calculation Services:</b>
+                                <ul>
+                                    <li>The server runs the <b>ServiceContract</b> console server application, which continuously provides astronomical calculations using <b>AstroMath.dll</b>.</li>
+                                    <li><b>AstroMath.dll</b> includes the following functions:
+                                        <ul>
+                                            <li>Star Velocity: Calculates the velocity of stars.</li>
+                                            <li>Star Distance: Determines the distance to stars.</li>
+                                            <li>Temperature Conversion: Converts temperatures between Celsius and Kelvin.</li>
+                                            <li>Blackhole Event Horizon: Computes the event horizon of a black hole.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b class="special-text">Client-Side Interface:</b>
+                                <ul>
+                                    <li>The <b>ClientApplication</b> Windows Forms Application connects to the <b>ServiceContract</b> using Named Pipes and WCF.</li>
+                                    <li>Provides user-friendly input fields for entering parameters for astronomical calculations and read-only fields for displaying results.</li>
+                                    <li><b>Scientific Output:</b> Outputs are formatted in scientific notation for accuracy.</li>
+                                </ul> 
+                            </li>
+                            <li><b class="special-text">Test Client Application:</b>
+                                <ul>
+                                    <li>The <b>TestClientServiceContract</b> console application tests the server-client connection to ensure communication functions correctly.</li>
+                                    <li>Useful for troubleshooting and validating the system before deploying the client application.</li>
+                                </ul>      
+                            </li>
+                            <li><b class="special-text">Error Handling and Input Validation:</b>
+                                <ul>
+                                    <li>The client application validates inputs to ensure they fall within the correct range for each calculation, preventing erroneous results.</li>
+                                </ul>
+                            </li>
+                            <li><b class="special-text">Language Customization:</b>
+                                <ul>
+                                    <li>The client application supports multiple languages: English (UK), French, and German.</li>
+                                    <li>Users can switch languages at runtime, and the UI updates all controls and labels accordingly.</li>
+                                </ul>
+                            </li>
+                            <li><b class="special-text">UI Customization:</b>
+                                <ul>
+                                    <li><b>Night Mode:</b> Adjust the UI for different times of day with night mode functionality.</li>
+                                    <li><b>Customizable Colours:</b> Users can change the background colours for forms, buttons, and text labels.</li>
+                                    <li><b>Colour Dialog:</b> Allows users to select a custom background colour using the built-in colour dialogue.</li>
+                                </ul>
+                            </li>
+                        </ul>
 
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requires unique username, unique email, and password.</td></tr>
+                    </p>
+                </div>
+                <button id="acc6" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Technologies Used: <b>︾</b></span></button>
+                <div class="panel"> 
+                    <ul>
+                        <li><b>Programming Languages:</b> C#</li>
+                        <li><b>Frameworks:</b> .NET Framework (Client), .NET Core (Server)</li>
+                        <li><b>Libraries:</b> AstroMath.dll (custom third-party DLL for astronomical functions)</li>
+                        <li><b>Communication:</b> Windows Communication Foundation (WCF), Named Pipes for inter-process communication</li>
+                        <li><b>UI:</b> Windows Forms Application for the client interface</li>
+                        <li><b>Error Handling:</b> Comprehensive error trapping for input validation and secure communication</li>
+                    </ul>
+                </div>
 
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/authorization/password/reset/foranother</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Resets password for any account</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
+                <button id="acc7" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Screenshots: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>Here’s a preview of the running client application:</p>
+                    <img class="photo" alt="ServiceContract console server application and ClientApplication Windows Forms Application" src="./files/images/AstroClientAndServerApp.jpg"/>
+                    <img class="photo" alt="ServiceContract console server application and ClientApplication Windows Forms Application" src="./files/images/AstroClientAndServerApp2.jpg"/>
+                    <img class="photo" alt="ClientApplication Windows Forms Application in dark mode" src="./files/images/AstroDarkMode.jpg"/>
+                    <img class="photo" alt="ClientApplication Windows Forms Application in light mode" src="./files/images/AstroLightMode.jpg"/>
+                    <img class="photo" alt="Adjust colour theme" src="./files/images/AstroAdjustColourTheme.jpg"/>
+                    <img class="photo" alt="Random colour theme" src="./files/images/AstroColourTheme.jpg"/>
+                    <img class="photo" alt="Language Customization for German" src="./files/images/AstroDeLang.jpg"/>
+                    <img class="photo" alt="Language Customization for French" src="./files/images/AstroFrLang.jpg"/>
+                    <img class="photo" alt="TestClientServiceContract console application" src="./files/images/AstroTestClientServiceContract.jpg"/>
+                    <img class="photo" alt="ServiceContract console server application" src="./files/images/AstroServerAppServiceContract.jpg"/>
+                </div>
+            </div><!--main panel for Astro project-->
+            <!--<p class="header-in-box">Astro Multi-Application System</p>-->
+            <p>
+                This system enables multiple client applications to connect to a remote server to perform astronomical 
+                calculations. The server uses a custom DLL (AstroMath.dll) that provides functions, including star velocity, 
+                star distance, temperature conversions, and black hole event horizon calculations.<br>
+                To review this project on GitHub <a class="text-link" href="https://github.com/MarinaDotNet/AstroRepository" title="Astro GitHub repository"> please follow this link</a>.
+            </p>
 
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requieres: to be signed in under admin account.<br/>Has to provide: correct 
-                        registrated email and correct current password for this account and new password</td></tr>
 
-                    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method post">POST</span>/authorization/password/reset</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Resets password for currently signed in account</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requires to be signed in and provide correct current password for this account.</td></tr>
-
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method delete">DELETE</span>/authorization/account/delete</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes currently signed in account</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requires to be signed in and provide correct current password for this account.</td></tr>
-
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method delete">DELETE</span>/authorization/account/delete/anotheruser</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes an account</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in as admin and to provide correct data for account that needs to be deleted.</td></tr>
-                </table>  
-            </div>
-
-            <button id="acc3" type="button" class="accordion header-in-box" onclick="accordion('acc3');"><span>OrderV Controller: <b>︾</b></span></button>
+            <button id="headAcc3" type="button" class="main-accordion header-in-box" onclick="accordion(id);"><span>Drone Service Application <b>︾</b></span></button>
             <div class="panel">
-                <table class="full-page">
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method post">POST</span>/order</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Creates new order if user signed in and doesn't have currently unsubmitted orders.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in and have unsubmitted orders</td></tr>
-                                        		
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/order/products/add</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Adds products to existing order</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to provide valid product/products id, that currently is available at database and valid order id.
-                            Adds products if current order exists in database for currently signed in user and not submitted yet.</td></tr>
-                            
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/order/products/delete</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes products from existing order for currently signed in user</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requered to provide order id and product id<br/>Deletes requested product/products from order, if current order exists in database for currently signed in user and not submitted yet.</td></tr>
-                    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/order/submit</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Submits order</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in and provide valid (for currently signed in user) and valid order id, currently unsubmitted.</td></tr>
+                <button id="acc8" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Features: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>
+                        <ul>
+                            <li><b class="special-text">Queue-Based Service Management:</b>
+                                <ul>
+                                    <li>Uses two Queue structures to manage drones for Regular and Express service categories.</li>
+                                    <li>Each entry in the queue contains the following attributes:
+                                        <ul>
+                                            <li>Client Name: The name of the drone owner</li>
+                                            <li>SDrone Model: The model of the drone.</li>
+                                            <li>Service Problem: A description of the problem or service needed.</li>
+                                            <li>Service Cost: The base cost of the service.</li>
+                                            <li>Service Tag: A unique identifier for the service request. Express Service Charge: The base service cost is increased by a 15% surcharge for Express service.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b class="special-text">Dequeue and Complete Service:</b> Once repaired, the drone is removed from the queue and the details are added to the list of completed work.</li>
+                            <li><b class="special-text">Error Trapping and Feedback: </b> This includes full error handling, with feedback displayed in a status strip at the bottom of the form.</li>
+                            <li><b class="special-text">User-Friendly Interface:</b> Designed with Windows Forms, providing an intuitive interface for managing drone service requests.</li>
+                        </ul>
 
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/order/products/delete</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes requested products by id from unsubmitted yet order</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in and provide valid (for currently signed in user)<br/>and valid order id and product id/ids that needs to be deleted.<br/>Order shoud not be submitted yet.</td></tr>
+                    </p>
+                </div>
+                <button id="acc9" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Technologies Used: <b>︾</b></span></button>
+                <div class="panel"> 
+                    <ul>
+                        <li><b>Programming Languages:</b> C#</li>
+                        <li><b>Frameworks:</b> .NET Core, Windows Forms</li>
+                        <li><b>Data Structures:</b> Queue for service management</li>
+                        <li><b>Tools:</b> Git for version control, Visual Studio IDE</li>
+                    </ul>
+                </div>
+                <button id="acc10" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Screenshots: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>Here’s a preview of the running application:</p>
+                    <img class="photo" alt="Preview of running Drone Service Application" src="./files/images/DroneServiceApp.jpg"/>
+                </div>
+                <button id="acc11" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>UML Class Diagram: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>Below is the UML class diagram illustrating the key classes and relationships:</p>
+                    <img class="photo" alt="UML of Drone Service Application" src="./files/images/DroneServiceAppUML.jpg"/>
+                </div>
+            </div><!--main panel for Drone Service project-->
+            <!--<p class="header-in-box">Drone Service Application</p>-->
+            <p>
+                This application is designed to log and manage drones that require service and repair. 
+                It organizes drones into two service categories: Regular and Express. The Express service includes 
+                an additional 15% charge. The application uses two Queue data structures to manage the order of service requests. 
+                Once a drone is repaired, it is removed from the appropriate queue and added to a list of completed work. 
+                The application includes full error trapping and displays feedback messages via a status strip at the bottom 
+                of the form. It is built using the Windows Forms Application Framework and .NET Core.<br>
+                To review this project on GitHub <a class="text-link" href="https://github.com/MarinaDotNet/DroneServiceApplication" title="Drone Service Application GitHub repository"> please follow this link</a>.
+            </p>
 
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>/account/order/unsubmit</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Unsubmits order</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in as admin and provide existing order id. Available access to all orders in database(for any user).<br/>Order shoud not be submitted.</td></tr>
-
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/order/details</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Gets requested order details</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in and provide order id. If signed in as admin can access to any order in database, if signed in as user can access only own orders.</td></tr>
-
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/order/all</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Gets all orders for currently signed in user.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in. Gets only own orders for signed in user.</td></tr>
-
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method delete">DELETE</span>/order/delete</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes requested order.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required to be signed in as admin. Deletes any existing order.</td></tr>
-                </table>
-            </div>
-                                    
-            <button id="acc4" type="button" class="accordion header-in-box" onclick="accordion('acc4');"><span>StockV Controller: <b>︾</b></span></button>
+            <button id="headAcc4" type="button" class="main-accordion header-in-box" onclick="accordion(id);"><span>Wiki Application <b>︾</b></span></button>
             <div class="panel">
-                <table class="full-page">
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/all</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Retrieves all data from database.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td id="GET/books/page" name="GET/books/page"><span class="http-method get">GET</span>/books/page</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns a list of requested products for requested page</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Returns list of requested quantity of products for requested page.<br/>
-                        The list is sorted in requested order, by requested parameter(by Title or by Author or by Price).<br/>
-                        If not specified sorting order && parameter for order, then its uses default parameters: descending order by Price.<br/>
-                        If requested page < 1, then returns page 1, if requested page is larger then total pages, then returns last page.<br/>
-                        The requested quantity of products per page should be in range 5 to 30. If requested quantity < 5 returns 5 products, if > 30 returns 30.<br/>
-                        For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/book/id</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns product with requested id.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>For ApiVersion-BooksStore : 2 and ApiVersion-BooksStore: 3, retrieves only were parameter “isAvailable” : true</td></tr>
-                    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/available</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns list of products where parameter isAvailable equals requested true or false.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/available/page</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns list of products where parameter isAvailable equals requested true or false, at requested page with requested quantity</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Deviding content into pages as in: <a class="text-link" href="#GET/books/page">GET/books/page method</a></td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/genres</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns a list of all product's genres in database</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>For ApiVersions 2 and 3 returns genres where at least one product isAvailable == true</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/genre</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns a list of products under requested genre, on requested page and requested quantity</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersions 2 and 3 returns genres where at least one product isAvailable == true.</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/filter/condition/equals</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns list of ALL products where Title, Author, Language or one of item from array of Genres EQUALS to searchCondition.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersion: 2 returns only products where isAvailable == true.</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/filter/condition/contains</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns list of ALL products where Title, Author, Language or one of item from array of Genres CONTAINS the searchCondition.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a><br/>For ApiVersion: 2 returns only products where isAvailable == true.</td></tr>
+                <button id="acc12" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Features: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>
+                        <ul>
+                            <li><b class="special-text">Add New Data Structure:</b> Allows users to easily add new Data Structures, 
+                                including specifying key attributes and properties.
+                                <ul>
+                                    <li>Name: The name of the Data Structure (e.g., Stack, Queue, Binary Tree).</li>
+                                    <li>Category: Classify the Data Structure into the following categories: Array, List, Hash, Tree, Graph, and Abstract.</li>
+                                    <li>Structure: Identify the structure type as either Linear or Non-Linear.</li>
+                                    <li>Definition: Provide a brief description or definition of the Data Structure.</li>
+                                </ul>
+                            </li>
+                            <li><b class="special-text">Edit Existing Data Structure:</b> Users can modify the attributes of 
+                                previously saved Data Structures to keep the information current. Except for the structure type 
+                                attribute, it can be Linear or Non-Linear only.</li>
+                            <li><b class="special-text">Save and Load Data:</b> Automatically saves all Data Structure information 
+                                in a binary file format when exiting the application or when the Save button is pressed, 
+                                ensuring efficient storage and retrieval. Additionally, the application supports saving and loading 
+                                data in other file formats, though the binary format remains the default option for optimal 
+                                performance.</li>
+                            <li><b class="special-text">Search Functionality:</b> Users can search for specific Data Structures by name or 
+                                other properties for quick access.</li>
+                            <li><b class="special-text">Delete Data Structures:</b> Allows users to remove unwanted or obsolete 
+                                Data Structures from the list.</li>
+                            <li><b class="special-text">User-Friendly Interface:</b> The Windows Forms interface provides an 
+                                intuitive and easy-to-navigate environment for managing Data Structures.</li>
+                            <li><b class="special-text">Efficient Binary Storage:</b> Data is stored in a compact binary file format, optimizing performance and space usage.</li>
+                        </ul>
+                    </p>
+                </div>
+                <button id="acc13" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Technologies Used: <b>︾</b></span></button>
+                <div class="panel"> 
+                    <ul>
+                        <li><b>Programming Languages:</b> C#</li>
+                        <li><b>Frameworks:</b> .NET Core, Windows Forms</li>
+                        <li><b>Storage:</b> Binary file format (default), with optional support for other formats (e.g., XML, JSON)</li>
+                        <li><b>Other tools:</b> GitHub for version control, Visual Studio as the integrated development environment (IDE)</li>
+                    </ul>
+                </div>
 
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/filter</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Sorts the list of all products by requested parameters. For each specified parameter that contains data.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2<br/>ApiVersion-BooksStore: 3</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Filters the list by each provided parameter. Exception if IsAvailable was not specified, then its sets as false for ApiVersion 1, and always sets to true for ApiVersions 2 and 3. Devides content into pages, returns requested page simmular to method: <a class="text-link" href="#GET/books/page">GET/books/page.</a></td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method post">POST</span>/book/add</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Adds new book/data in database. Requires entering all data, except the Id, Id generated automatically</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method delete">DELETE</span>/book/delete</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Deletes product under requested id.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required valid product id</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method put">PUT</span>//book/update</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Updates product under requested id with provided data.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Required valid product id.<br/>If some parameters was not specified, then it keeps old data for this parameters.</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/count/all</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns quantity of all products in database.</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>For ApiVersion-BooksStore : 2 retrieves only were parameter “isAvailable” : true.</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/count/available</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns quantity of products where products as requested isAvailable == true or false</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Requered to specify isAvailable == true or false</td></tr>
-    
-                    <tr><th>Method API:</th></tr>
-                    <tr><td><span class="http-method get">GET</span>/books/count/ingenre</td></tr>
-                    <tr><th>Description:</th></tr>
-                    <tr><td>Returns quantity of products under specified genre</td></tr>
-                    <tr><th>API Versions supported:</th></tr>
-                    <tr><td>ApiVersion-BooksStore: 1<br/>ApiVersion-BooksStore: 2</td></tr>
-                    <tr><th>Additional notes:</th></tr>
-                    <tr><td>Reguered to specify valid genre.<br/>For ApiVersion: 2 counts only products with parameter isAvailable == true. Could return 0 if there nor products under specified conditions</td></tr>
-               </table>
-            </div>
+                <button id="acc14" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>Screenshots: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>Here’s a preview of the running application:</p>
+                    <img class="photo" alt="running Wiki application" src="./files/images/WikiApplication.jpg"/>
+                </div>
+                
+                <button id="acc15" type="button" class="accordion accordion-text" onclick="accordion(id);"><span>UML Class Diagram: <b>︾</b></span></button>
+                <div class="panel">
+                    <p>Below is the UML class diagram illustrating the key classes and relationships:</p>
+                    <img class="photo" alt="Wiki application UML class diagram" src="./files/images/WikiAppUMLClass.jpg"/>
+                </div>
+            </div><!--main panel for Wiki Application project-->
+            <p>
+                This application is designed to manage information about various Data Structures by allowing users to store, add, 
+                edit, save, and load data from a binary file. It provides an efficient way to handle and maintain data related to 
+                different Data Structures. Built using the Windows Forms Application Framework and .NET Core, it ensures a 
+                user-friendly interface and robust performance.<br>
+                To review this project on GitHub <a class="text-link" href="https://github.com/MarinaDotNet/WikiApp" title="Wiki Application GitHub repository"> please follow this link</a>.
+            </p>
+
+
+
         </div><!--middle-page-->
 
         <div id="footer"></div>

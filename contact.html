@@ -7,35 +7,32 @@
         <link rel="stylesheet" href="./style/nav-style.css">
         <script src="./function/functions.js"></script>
     </head>
-    <body id="contact.">
+    <body id="contact">
         <div class="header">
             <div id="navigation"></div>
         </div>
 
-        <div class="middle-page" id="middle">
-            <form class="contact-form" autocomplete="on" action="https://formcarry.com/s/noCfyWTloTO" method="post" enctype="multipart/form-data">
-                <legend class="header-in-box">Contact with Me:</legend>
-
-                <input class="input-text input-mode" type="email" id="email" name="email" title="Email From" placeholder="Sender Email" required autocomplete="email">
-                    
-                <input class="input-text input-mode" type="text" id="subject" name="subject" title="Subject" placeholder="Add a subject" list="subjects">
-                <datalist id="subjects">
-                    <option value="Hiring as Software Developer"></option>
-                    <option value="Invitation to Job Interview"></option>
-                </datalist>
-
-                <!-- Consider enabling file upload if needed -->
-                <!-- <input class="input-text" type="file" id="picture" name="picture" title="File to attach" multiple>-->
-
-                <textarea class="input-text input-mode" type="text" id="message" name="message" title="Message to send" placeholder="Your message..." rows="10" cols="auto" required></textarea>
-                    
-                <div class="in-one-line">
-                    <a class="text-link" href="mailto:marina.sichova@outlook.com" title="emailTo">
-                        <img class="icons-imported" src="./files/images/email-svgrepo-com.svg" alt="Email icon" />msichova@outlook.com
-                    </a>
-                    <button class="download-button" type="submit">Send</button>
+        <div class="middle-page-columns" id="middle">
+            <div class="middle-page-right-side-contact">
+                <div>
+                    <h1 class="header-in-box">Contact Details:</h1> 
+                    <h3 class="special-text">Emails:</h3> 
+                    <span><b>Outlook:</b> <a href="mailto:msichova@outlook.com" class="text-link">msichova@outlook.com</a><br>
+                        <b>Gmail: </b> <a href="mailto:msichova.net@gmail.com" class="text-link">msichova.net@gmail.com</a>
+                    </span>
+                    <h3 class="special-text">Mobile, WhatsApp, Viber:</h3>
+                    <span>+(61)-433-881-789</span>
+                    <h3 class="special-text">Social Media:</h3>
+                    <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/marina-sichova-333599281" class="text-link"> visit me at LinkedIn</a><br>
+                        <b>Facebook:</b> <a href="https://www.facebook.com/msichova/" class="text-link"> visit me at Facebook</a><br>
+                        <b>GitHub:</b> <a href="https://github.com/marinadotnet" class="text-link"> visit me at GitHub</a>
+                    </span>
                 </div>
-            </form>
+            </div>
+            
+            <div class="middle-page-left-side-contact">
+                <img class="photo" name="portfolioImage" id="portfolioImage" alt="Portfolio Image" />
+            </div>
         </div><!--middle-page-->
 
         <div id="footer"></div>
