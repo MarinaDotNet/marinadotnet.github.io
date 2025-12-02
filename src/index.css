@@ -1,68 +1,174 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* 
+* Main application colour palette/theme, for default (dark) theme 
+* and some other values for the whole application 
+*/
+:root{
+  --color-highlight-primary: #FFD700; /* Active component */
+  --color-accent-yellow: #D2B617;
+  --color-accent-green: #2DCC14;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-headers: "Rubik", sans-serif;
+  --font-body: "Manrope", sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-background: #0F0F2E;
+
+  --color-frame: #1F1F60;
+  --color-accent-cyan: #24CED1;
+  --color-accent-cyan-translucent: rgba(36, 206, 209, 0.7);
+  --color-text-muted: #A1A1A1;
+  --color-text-bright: #E6FFFF;
+  --color-text-neutral: #D9D9D9;
+  --color-text-code-comment: #00E000;
+  --color-text-code-keywords: #9098F5;
+  --color-text-code-class: #04D5D8;
+  --color-text-code-value: #FDAA8B;
+  --font-weight-for-code-text: normal;
+
+  --color-border: #252574;
+  --color-text-primary: #E6FFFF;
+  --color-text-secondary: #E6E6E6;
+
+  --color-nav-btn-inactive: #19194D;
+  --color-nav-btn-active: #1F1F60;
+
+  --color-button-bg: rgba(19, 19, 58, 0.9);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Application colour palette/theme, for light theme version */
+body.light-theme{
+  --color-background: #C5C5EC;
+
+  --color-frame: #8B8BDA;
+  --color-accent-cyan: #0000B3;
+  --color-accent-cyan-translucent: rgba(0, 0, 179, 0.7);
+  --color-text-muted: #383838;
+  --color-text-bright: #003333;
+  --color-text-neutral: #333333;
+  --color-text-code-comment: #004d00;
+  --color-text-code-keywords: var(--color-accent-cyan);
+  --color-text-code-class: 	#540284;
+  --color-text-code-value: #661B00;
+  --font-weight-for-code-text: bold;
+
+  --color-border: #7878D3;
+  --color-text-primary: #0F0F2E;
+  --color-text-secondary: #1A1A1A;
+
+  --color-nav-btn-inactive: #9F9FE0;
+  --color-nav-btn-active: #8B8BDA;
+
+  --color-button-bg: rgba(178, 178, 230, 0.9);
 }
 
-body {
+/* Page Scroll behaviour*/
+html{
+  scroll-padding-top: 25vh;
+  scroll-behavior: smooth;
+}
+
+/* Base Body Layout */
+body{
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  font-family: var(--font-body);
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* #region Navigation Bar Styles */
+/* Navbar Container */
+.nav-bar{
+ display: flex;
+ align-items: stretch;
+ justify-content: flex-start;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+/* Navbar Buttons */
+#nav-buttons button{
+  background-color: var(--color-nav-btn-inactive);
+  border: none;
+  margin: 0 2px 0 0;
+
+  color: var(--color-text-primary);
+
+  text-align: center;
+  padding: 0.5rem;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+#nav-buttons button:active,
+#nav-buttons button.active{
+  background-color: var(--color-nav-btn-active);
+  border-top: 2px solid var(--color-highlight-primary);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.hamburger-icon{
+  display: none;
 }
+
+/* #endregion Navigation Bar Styles */
+
+
+
+/* #region Mobile Layouts */
+
+@media screen and (max-width: 600px), screen and (max-height: 500px){
+  /* #region NavBar styles for Mobile Layout */
+  .nav-bar{
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    margin-left: 2px;
+  }
+  .responsive-nav-button button.active{
+    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
+    height: 5vh;
+    line-height: 1vh;
+  }
+  .hamburger-icon {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .navigate-buttons.responsive {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    width: max-content;
+    background-color: var(--color-nav-btn-inactive);
+    z-index: 10;
+  }
+  .responsive-nav-button button.active{
+    display: flex;
+    height: 5vh;
+  }
+  .responsive-nav-button button:not(.active){
+    display: none;
+  }
+  .navigate-buttons.responsive .responsive-nav-button button:not(.active){
+    display: flex;
+  }
+  .navigate-buttons.responsive .responsive-nav-button button{
+    width: 100%;
+  }
+
+  #nav-buttons button{
+    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
+    line-height: 1vh;
+}
+/* #endregion NavBar styles for Mobile Layout */
+}
+
+/* #endregion Mobile Layouts */
