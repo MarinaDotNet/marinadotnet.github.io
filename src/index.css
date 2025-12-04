@@ -62,7 +62,7 @@ body.light-theme{
 
 /* Page Scroll behaviour*/
 html{
-  scroll-padding-top: 25vh;
+  scroll-padding-top: 25svh;
   scroll-behavior: smooth;
 }
 
@@ -78,12 +78,21 @@ body{
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(2, 1fr);
 
-  width: 100vw;
-  height: 100vh;
+  width: 100svw;
+  height: 100svh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+/* === Page Content Wrapper === */
+.page-layout{
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  width: 100svw;
+  gap: 1svw;
 }
 
 /* #region Navigation Bar Styles */
@@ -126,13 +135,13 @@ body{
   .nav-bar{
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
+    height: 5svh;
     margin-left: 2px;
   }
   .responsive-nav-button button.active{
-    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
-    height: 5vh;
-    line-height: 1vh;
+    font-size: clamp(0.65rem, 0.7svw + 0.15rem, 0.875rem);
+    height: 5svh;
+    line-height: 1svh;
   }
   .hamburger-icon {
     display: flex;
@@ -144,15 +153,15 @@ body{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10vh;
-    left: 10vw;
+    top: 10svh;
+    left: 10svw;
     width: max-content;
     background-color: var(--color-nav-btn-inactive);
     z-index: 10;
   }
   .responsive-nav-button button.active{
     display: flex;
-    height: 5vh;
+    height: 5svh;
   }
   .responsive-nav-button button:not(.active){
     display: none;
@@ -166,9 +175,160 @@ body{
 
   #nav-buttons button{
     font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
-    line-height: 1vh;
+    line-height: 1svh;
 }
 /* #endregion NavBar styles for Mobile Layout */
 }
 
 /* #endregion Mobile Layouts */
+
+
+/* #region Visual Studio UI Simulation - Top Decorative Components */
+.vs-toolbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100svw;
+  height: 5svh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.vs-toolbar-line {
+  display: flex;
+  align-items: center;
+  height: 2.5svh;
+}
+
+.vs-toolbar-line button {
+  height: 2.5svh;
+  padding: 0 0.5vw; 
+  line-height: 2.5svh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*font-size: clamp(10px, 1.2vh, 20px);*/
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px){
+  .vs-toolbar-line button{
+    font-size: clamp(10px, 1svh, 20px);
+  }
+}
+
+.icon-button-row {
+  display: flex;
+  gap: 0 2px;
+  height: 2.5svh;
+}
+
+.divider-vertical {
+  height: 2.5svh;
+  width: 1px;
+  margin: 0 2px;
+}
+
+.divider-double-dotted {
+  border-left: 1px dotted var(--color-text-muted);
+  border-right: 1px dotted var(--color-text-muted);
+}
+
+.divider-single-solid {
+  border-left: 1px solid var(--color-text-muted);
+}
+
+/* #region Buttons styles */
+.btn-icon,
+.btn-icon-double {
+  background-color: var(--color-background);
+}
+
+.btn-icon svg{
+  height: 2.5svh;
+  width: auto;
+}
+
+.btn-icon-double {
+  border: 1px solid var(--color-background);
+  font-weight: bold;
+  gap: 0;
+}
+
+.btn-icon-double svg{
+  height: 2.3svh;
+  width: auto;
+}
+
+.btn-muted {
+  background-color: var(--color-background);
+  border: none;
+  color: var(--color-text-muted);
+  font-weight: lighter;
+}
+
+.btn-icon-round {
+  border-radius: 10px;
+  border: 2px solid var(--color-text-muted);
+}
+
+.btn-icon-round.active {
+  border: 2px solid var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+}
+
+.btn-icon-dashed {
+  border-radius: 3px;
+  border: 2px dashed var(--color-text-muted);
+  font-size: clamp(0.4rem, 0.8svw + 0.1rem, 0.9rem);
+  width: clamp(1.8svw, 1svw + 0.1svw, 3.6svw);
+}
+
+.btn-icon-solid {
+  border: 1px solid var(--color-background);
+}
+
+.btn-text-light {
+  background-color: var(--color-button-bg);
+  border: 1px solid var(--color-button-bg);
+  font-weight: lighter;
+  font-size: clamp(0.4rem, 0.8svw + 0.1rem, 0.9rem);
+}
+
+.btn-text-muted {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-background);
+  font-weight: lighter;
+  font-size: clamp(0.4rem, 0.8svw + 0.1rem, 0.9rem);
+  margin-left: 8px;
+}
+
+.btn-abc-check {
+  border: none;
+  background-color: var(--color-bg-button);
+  cursor: none;
+}
+
+button.btn-muted,
+button.btn-icon,
+button.btn-icon-double,
+button.btn-abc-check{
+  cursor:auto;
+}
+/* #endregion Buttons styles */
+
+/* #region of text styles for top rows of Visual Studio simulaion */
+.text-bold-sm {
+  font-weight: bold;
+  font-size: clamp(0.5rem, 1svw + 0.1rem, 1rem);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-accent-green{
+  color: var(--color-accent-green);
+}
+
+/* #endregion of text styles for top rows of Visual Studio simulaion */
+
+/* #endregion Visual Studio UI Simulation - Top Decorative Components */
