@@ -1,3 +1,9 @@
+/**
+ * 
+ * @returns 
+ * Simulation of UI for main menu and toolbar of Visual Studio for large screens.
+ * Currently only for decoration purposses.
+ */
 export default function DecorativeTopComponents(){
     return(
         <div className="vs-toolbar-wrapper">
