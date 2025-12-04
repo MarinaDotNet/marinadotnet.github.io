@@ -95,6 +95,15 @@ body{
   gap: 1svw;
 }
 
+/* #region of Text Utilities */
+.text-primary,
+a.primary-text,
+a.primary-text::after{
+  color: var(--color-text-primary);
+}
+
+/* #endregion of Text Utilities */
+
 /* #region Navigation Bar Styles */
 /* Navbar Container */
 .nav-bar{
@@ -330,5 +339,20 @@ button.btn-abc-check{
 }
 
 /* #endregion of text styles for top rows of Visual Studio simulaion */
+
+/* #region Mobile Top Decorative Components */
+
+.decorative-top-mobile{
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: var(--color-button-bg);
+  border-bottom: solid 1px var(--color-frame);
+}
+
+/* #endregion Mobile Top Decorative Components */
 
 /* #endregion Visual Studio UI Simulation - Top Decorative Components */
