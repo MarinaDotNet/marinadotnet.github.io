@@ -32,6 +32,9 @@
   --color-nav-btn-active: #1F1F60;
 
   --color-button-bg: rgba(19, 19, 58, 0.9);
+
+  /* Inline SVG icon used for accordion list bullets */
+  --icon-accordion-list-item: url("data:image/svg+xml,%3Csvg%20width%3D%2211%22%20height%3D%2213%22%20viewBox%3D%220%200%2011%2013%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Crect%20x%3D%220.25%22%20y%3D%220.539955%22%20width%3D%2210.3355%22%20height%3D%222.20888%22%20fill%3D%22%230F0F2E%22%20stroke%3D%22%23D9D9D9%22%20stroke-width%3D%220.5%22/%3E%3Crect%20x%3D%220.25%22%20y%3D%229.56956%22%20width%3D%2210.3355%22%20height%3D%222.20888%22%20fill%3D%22%230F0F2E%22%20stroke%3D%22%23D9D9D9%22%20stroke-width%3D%220.5%22/%3E%3Crect%20x%3D%220.25%22%20y%3D%225.05476%22%20width%3D%2210.3355%22%20height%3D%222.20888%22%20fill%3D%22%230F0F2E%22%20stroke%3D%22%23D9D9D9%22%20stroke-width%3D%220.5%22/%3E%3C/svg%3E");
 }
 
 /* Application colour palette/theme, for light theme version */
@@ -86,7 +89,7 @@ body{
   overflow-y: auto;
 }
 
-/* === Page Content Wrapper === */
+/* Page Content Wrapper */
 .page-layout{
   display: flex;
   flex-direction: column;
@@ -94,6 +97,23 @@ body{
   width: 100svw;
   gap: 1svw;
 }
+
+/* #region Main content area styles, main information to be place/shown such as html pages, nav-bar */
+.main-content{
+  display: flex;
+  flex-direction: row;
+  height: 60svh;
+  width: 100svw;
+}
+
+.middle-content{
+  display: flex;
+  flex-direction: column;
+  height: 60svh;
+  width: 58svw;
+}
+
+/* #endregion Main content area styles, main information to be place/shown such as html pages, nav-bar */
 
 /* #region of Text Utilities */
 .text-primary,
@@ -104,9 +124,150 @@ a.primary-text::after{
 
 /* #endregion of Text Utilities */
 
+/* #region Styles for accordions of desktopLayoutComponents/PageContentLeftSide.jsx */
+
+/* Main container for accordion */
+.accordion-container{
+  border: 1px solid var(--color-background);
+  overflow: hidden;
+}
+
+.accordion-header-btn{
+  width: 100%;
+  text-align: left;
+  background-color: var(--color-background);
+  border: none;
+
+  font-size: clamp(0.3rem, 1svw + 0.1rem, 0.7rem);
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  gap: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: left;
+  color: var(--color-text-primary);
+}
+
+/* Content panel shown when accordion open */
+.accordion-panel{
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: 0.5svw;
+}
+
+/* #endregion Styles for accordions of desktopLayoutComponents/PageContentLeftSide.jsx */
+
+/* #region side-bars styles */
+.panel-sidebar{ /*panel-sidebar-left*/
+  display: flex;
+  flex-direction: column;
+  width: 20svw;
+  border: 2px solid var(--color-border);
+  margin: 0 1svw 0 0;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.sidebar-object-header{ /*server-object-header*/
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin: 2px;
+  width: 20svw;
+  box-sizing: border-box;
+}
+
+/* Responsive small title text */
+.text-title-sm{
+  font-size: clamp(0.5rem, 1svw + 0.1rem, 0.88rem);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Dotted triple horizontal line */
+.divider-expandable{
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+  width: 100%;
+  height: 2svh;
+
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--color-text-muted),
+      var(--color-text-muted) 0.2svw,
+      transparent 0.2svw,
+      transparent 0.4svw
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 0.2svw,
+      transparent 0.4svw,
+      var(--color-text-muted),
+      var(--color-text-muted) 0.2svw
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--color-text-muted),
+      var(--color-text-muted) 0.2svw,
+      transparent 0.2svw,
+      transparent 0.4svw
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position:
+      0 0.7svh, /* top line */
+      0 1.1svh, /* middle line */
+      0 1.5svh; /* bottom line */
+}
+
+/* Container for window control buttons */
+.window-controls{ /*server-object-controls*/
+  display: inline-flex;
+}
+
+/* Icon-style button with minimal styling */
+button.btn-icon-window{ /*btn-icon-server*/
+background-color: var(--color-background);
+padding: 0;
+margin: 0 1px;
+cursor: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+border: none;
+}
+
+.icon-controls{
+  width: clamp(0.5svw, 1svw, 1.5svw);
+  height: clamp(0.5svw, 1svw, 1.5svw);
+}
+
+/* Wrapper for icon and title in accordion header */
+.accordion-icon-group{
+  display: flex;
+  align-items: center;
+  gap: 0.2ram;
+}
+
+/* #region list styles */
+/* List inside accordion panel with custom icon */
+.accordion-list-db{ /* accordion-list*/
+  padding: 0;
+  margin: 0 1.3rem;
+  font-size: clamp(0.3rem, 1svw + 0.1rem, 0.7rem);
+  list-style-image: var(--icon-accordion-list-item);
+}
+/* #endregion list styles */
+
+/* #endregion side-bars styles */
+
 /* #region Navigation Bar Styles */
 /* Navbar Container */
 .nav-bar{
+
  display: flex;
  align-items: stretch;
  justify-content: flex-start;
