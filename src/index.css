@@ -589,3 +589,41 @@ button.btn-abc-check{
   }
 }
 /* #endregion Scrollbar */
+
+/* #region CodeTokens styles */
+.text-code{
+  font-size: clamp(0.875rem, 1vw + 0.25rem, 1.125rem);
+  font-family: 'Courier New', monospace;
+  font-weight: var(--font-weight-for-code-text);
+}
+.text-code-rows{
+  padding: 0 2em 0 0.1em;
+  color: var(--color-text-muted);
+}
+.text-code-keywords{
+  color: var(--color-text-code-keywords);
+}
+.text-code-value,
+.text-code-value a{
+  color: var(--color-text-code-value);
+}
+.text-code-class{
+  color: var(--color-text-code-class);
+}
+.text-comment{
+  color: var(--color-text-code-comment);
+}
+/* #endregion CodeTokens styles */
+
+/* 
+  Applies a reverse hanging indent to text.
+  - Removes default margins.
+  - Indents the entire paragraph to the right (padding-left).
+  - Pulls the first line back to the left (negative text-indent),
+    creating a reverse hanging effect.
+*/
+.reverse-hanging-indent {
+  margin: 0;
+  padding-left: 8vw;   
+  text-indent: -8vw;    
+}
