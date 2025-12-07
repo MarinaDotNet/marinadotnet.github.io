@@ -48,7 +48,7 @@ export default function PageContentLeftSide(){
     };
 
     return(
-        <div className="panel-sidebar"> {/*panel-sidebar-left */}
+        <div className="panel-sidebar-left">
             <div className="sidebar-object-header"> {/* server-object-header */ }
                 <span className="text-title-sm">SQL Server Object Explorer</span>
 

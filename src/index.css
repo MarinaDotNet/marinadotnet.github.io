@@ -124,7 +124,7 @@ a.primary-text::after{
 
 /* #endregion of Text Utilities */
 
-/* #region Styles for accordions of desktopLayoutComponents/PageContentLeftSide.jsx */
+/* #region Styles for accordions*/
 
 /* Main container for accordion */
 .accordion-container{
@@ -132,41 +132,59 @@ a.primary-text::after{
   overflow: hidden;
 }
 
-.accordion-header-btn{
+.accordion-header-btn,
+.v2-accordion-header-btn{
   width: 100%;
   text-align: left;
-  background-color: var(--color-background);
   border: none;
-
   font-size: clamp(0.3rem, 1svw + 0.1rem, 0.7rem);
   white-space: nowrap;
   flex-shrink: 0;
-
   gap: 0.2rem;
   cursor: pointer;
   display: flex;
   justify-content: left;
+  align-items: center;
   color: var(--color-text-primary);
 }
-
+.accordion-header-btn{
+background-color: var(--color-background);
+}
+.v2-accordion-header-btn{
+  background-color: var(--color-frame);
+  height: 20px;
+}
 /* Content panel shown when accordion open */
 .accordion-panel{
   align-items: center;
   gap: 0.2rem;
   margin-left: 0.5svw;
 }
+/* Version 2 of content panel shown when accordion open */
+.v2-accordion-panel{
+  padding: 0.1rem;
+  background-color: var(--color-background);
+  border-left: 12px solid var(--color-frame);
+  border-right: 12px solid var(--color-frame);
+}
 
 /* #endregion Styles for accordions of desktopLayoutComponents/PageContentLeftSide.jsx */
 
 /* #region side-bars styles */
-.panel-sidebar{ /*panel-sidebar-left*/
+.panel-sidebar-right,
+.panel-sidebar-left{ 
   display: flex;
   flex-direction: column;
   width: 20svw;
   border: 2px solid var(--color-border);
-  margin: 0 1svw 0 0;
   overflow-y: auto;
   overflow-x: auto;
+}
+.panel-sidebar-left{
+  margin: 0 1svw 0 0;
+}
+.panel-sidebar-right{
+  margin: 0 0 0 1svw;
 }
 
 .sidebar-object-header{ /*server-object-header*/
@@ -186,42 +204,43 @@ a.primary-text::after{
 }
 
 /* Dotted triple horizontal line */
-.divider-expandable{
-  display: flex;
-  flex-grow: 1;
-  min-width: 0;
-  width: 100%;
-  height: 2svh;
+.divider-expandable {
+flex-grow: 1;
+min-width: 0;
+width: 100%;
+height: 2vh;
 
-  background-image:
-    repeating-linear-gradient(
-      to right,
-      var(--color-text-muted),
-      var(--color-text-muted) 0.2svw,
-      transparent 0.2svw,
-      transparent 0.4svw
+background-image:
+  repeating-linear-gradient(
+    to right,
+    var(--color-text-muted),
+    var(--color-text-muted) 0.2vw,
+    transparent 0.2vw,
+    transparent 0.4vw
     ),
-    repeating-linear-gradient(
-      to right,
-      transparent 0.2svw,
-      transparent 0.4svw,
-      var(--color-text-muted),
-      var(--color-text-muted) 0.2svw
+  repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 0.2vw,
+    var(--color-text-muted) 0.2vw,
+    var(--color-text-muted) 0.4vw
     ),
-    repeating-linear-gradient(
-      to right,
-      var(--color-text-muted),
-      var(--color-text-muted) 0.2svw,
-      transparent 0.2svw,
-      transparent 0.4svw
+  repeating-linear-gradient(
+    to right,
+    var(--color-text-muted),
+    var(--color-text-muted) 0.2vw,
+    transparent 0.2vw,
+    transparent 0.4vw
     );
     background-repeat: no-repeat;
-    background-size: 100% 1px;
+    background-size: 100% 1px; 
     background-position:
-      0 0.7svh, /* top line */
-      0 1.1svh, /* middle line */
-      0 1.5svh; /* bottom line */
+    0 0.7vh,     /* top line */
+    0 1.1vh,     /* middle line */
+    0 1.5vh;     /* bottom line */
+    display:flex;
 }
+
 
 /* Container for window control buttons */
 .window-controls{ /*server-object-controls*/
@@ -259,6 +278,29 @@ border: none;
   margin: 0 1.3rem;
   font-size: clamp(0.3rem, 1svw + 0.1rem, 0.7rem);
   list-style-image: var(--icon-accordion-list-item);
+}
+
+.accordion-list-prop{/*v2-accordion-list*/
+  padding: 0;
+  margin: 0 1px 0;
+  font-size: clamp(0.3rem, 1svw + 0.1rem, 0.7rem);
+  list-style: none;
+}
+.accordion-list-prop li::before{/*v2-accordion-list li::before*/
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.accordion-list-prop li a{ /*v2-accordion-list li a*/
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+/* Horizontal rule style */
+.line{
+  border: none;
+  height: 0.5px;
+  background-color: var(--color-frame);
+  margin:0;
 }
 /* #endregion list styles */
 
