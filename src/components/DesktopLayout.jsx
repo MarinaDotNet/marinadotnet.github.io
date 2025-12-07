@@ -3,6 +3,8 @@ import DecorativeTopComponent from "./desktopLayoutComponents/DecorativeTopCompo
 import PageContentLeftSide from "./desktopLayoutComponents/PageContentLeftSide";
 import PageContentRightSide from "./desktopLayoutComponents/PageContentRightSide";
 
+import Home from "./pages/Home";
+
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function DesktopLayout(){
@@ -14,13 +16,15 @@ export default function DesktopLayout(){
                 <DecorativeTopComponent />
 
                 <div className="main-content">
-
                     <PageContentLeftSide />
-
                     <div className="middle-content">
                         <NavBar />
-                        <h1>This is layout for Desktop</h1>
-                        <p>Will be added later.</p>
+                        
+                        <div className="component-box">
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                            </Routes>
+                        </div>
                     </div>
 
                     <PageContentRightSide />

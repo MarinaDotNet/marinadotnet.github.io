@@ -113,6 +113,13 @@ body{
   width: 58svw;
 }
 
+.component-box{
+  border-left: 10px solid var(--color-frame);
+  border-bottom: 10px solid var(--color-frame);
+  
+  overflow-y: scroll;
+}
+
 /* #endregion Main content area styles, main information to be place/shown such as html pages, nav-bar */
 
 /* #region of Text Utilities */
