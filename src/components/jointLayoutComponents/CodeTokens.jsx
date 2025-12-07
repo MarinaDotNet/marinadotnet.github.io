@@ -106,7 +106,7 @@ function Comment({children}){
     return(
         <>
         <span className="text-comment">
-            {children}
+            /* {children} */
         </span>
         </>
     );
@@ -123,7 +123,7 @@ function SingleComment({children}){
     return(
         <>
         <span className="text-comment">
-            {children}
+            // {children}
         </span>
         </>
     );
