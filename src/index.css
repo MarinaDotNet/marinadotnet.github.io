@@ -22,6 +22,7 @@
   --color-text-code-keywords: #9098F5;
   --color-text-code-class: #04D5D8;
   --color-text-code-value: #FDAA8B;
+  --color-text-warning: #FF7575;
   --font-weight-for-code-text: normal;
 
   --color-border: #252574;
@@ -51,6 +52,7 @@ body.light-theme{
   --color-text-code-keywords: var(--color-accent-cyan);
   --color-text-code-class: 	#540284;
   --color-text-code-value: #661B00;
+  --color-text-warning: #700000;
   --font-weight-for-code-text: bold;
 
   --color-border: #7878D3;
@@ -667,3 +669,96 @@ button.btn-abc-check{
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); 
 }
 /* #endregion */
+
+/* #region Console styles */
+
+.footer{
+    max-height: 40vh;
+}
+
+/* Console Window Styling */
+.console-window{
+    font-size: clamp(0.75rem, 0.9vw + 0.2rem, 1rem);
+    background-color: transparent;
+    font-family: 'Courier New', monospace;
+    padding: 0.2rem;
+    max-height: 20vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+.console-window-header{
+    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
+    white-space: nowrap;
+}
+
+/* Input Field in Console Form */
+.console-input{
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    outline: none;
+    flex: 1;
+    font-size: clamp(0.75rem, 0.9vw + 0.2rem, 1rem);
+}
+
+/* Prefix Symbol (e.g., > or $) Before Input */
+.console-prefics{
+    margin: 0 0.2rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+/* Container for Input Row */
+.console-input-form{
+    display: flex;
+    align-items: center;
+}
+
+/* Individual Console Output Line */
+.console-line{
+    margin: 0 0.2rem;
+    white-space: nowrap;
+}
+
+/* Styling for Command Text in Output */
+.cmd{
+    color: var(--color-accent-cyan);
+    font-weight: bold;
+}
+
+/* Styling for Warning Commands or Text */
+.cmd-warning{
+    color: var(--color-text-warning);
+    font-weight: bold;
+}
+
+/* General Warning Text Styling */
+.text-warning{
+    color: var(--color-text-warning);
+}
+
+/* Powershell Header (e.g., "Developer Powershell") */
+.developer-powershell-header{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 2px;
+  font-size: clamp(0.75rem, 0.9vw + 0.2rem, 1rem);
+  font-family: 'Courier New', monospace;
+  font-weight: bolder;
+}
+
+/* Powershell Top Bar Elements (Icons, Text, etc.) */
+.powershell-bar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
+    font-family: 'Courier New', monospace;
+    font-weight: bolder;
+    gap: 0.2rem;
+    margin-left: 2px;
+}
+
+/* #endregion Console styles */

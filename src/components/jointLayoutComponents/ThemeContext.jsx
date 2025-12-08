@@ -30,7 +30,7 @@ const ThemeContext = createContext();
  */
 function ThemeProvider({children}){
     const [theme, setTheme] = useState(() => {
-        localStorage.getItem("theme")
+       return localStorage.getItem("theme")
         ? localStorage.getItem("theme")
         : "dark"
     });
@@ -38,7 +38,7 @@ function ThemeProvider({children}){
     useEffect(() => {
         document.body.className = theme === "light" ? "light-theme" : "dark-theme";
         localStorage.setItem("theme", theme);
-    });
+    }, [theme]);
 
     /**
     * Toggles between light and dark themes.
