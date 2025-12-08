@@ -567,7 +567,7 @@ button.btn-abc-check{
 
 /* #endregion Visual Studio UI Simulation - Top Decorative Components */
 
-/* Scrollbar Styling */
+/* #region Scrollbar Styling */
 
 /*WebKit Scrollbar Styling (Chrome, Safari, Edge)*/
 ::-webkit-scrollbar {
@@ -646,3 +646,24 @@ button.btn-abc-check{
   align-items: center;
   justify-content: space-between;
 }
+
+/* #region Color Theme Icon */
+/* Color Theme Icon Styling */
+.color-theme-icon{
+  margin: 0 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  border-radius: 8px;
+}
+.color-theme-icon:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* creates the clickable shadow effect */
+  transform: translateY(-2px); /* slight lift */
+  cursor: pointer;
+}
+.color-theme-icon svg {
+  transition: filter 0.3s ease;
+}
+.color-theme-icon:hover svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); 
+}
+/* #endregion */
