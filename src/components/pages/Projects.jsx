@@ -1,8 +1,10 @@
 import {NumberedCodeBloc, CodeKeyWords, CodeValues, ClassName, Tab, SingleComment} from "../jointLayoutComponents/CodeTokens";
+import ScrollToHash from "../ScrolltoHash";
 
 export default function Projects(){
     return(
         <>
+            <ScrollToHash />
             <NumberedCodeBloc children={[
                 <><CodeKeyWords>using</CodeKeyWords> System;</>,
                 <><CodeKeyWords>using</CodeKeyWords> Projects.Backend;</>,
