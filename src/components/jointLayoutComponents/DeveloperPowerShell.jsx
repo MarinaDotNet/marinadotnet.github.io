@@ -50,7 +50,7 @@ export default function DeveloperPowerShell()
             case "home": 
             case "home.cs":
             case "h":
-                navigate("/home");
+                navigate("/");
                 break;
             case "/projects.cs":
             case "projects": 
