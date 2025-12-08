@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Aboutme from "./pages/Aboutme";
+import Contact from "./pages/Contact";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -30,6 +31,7 @@ export default function DesktopLayout(){
                                 <Route path="/projects" element={<Projects />} />
                                 <Route path="/skills" element={<Skills />} />
                                 <Route path="/aboutme" element={<Aboutme />} />
+                                <Route path="/contact" element={<Contact />} />
                             </Routes> 
                         </div>
                     </div>
