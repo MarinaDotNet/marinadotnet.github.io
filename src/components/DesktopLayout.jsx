@@ -7,6 +7,7 @@ import DecorativeTopPageLine from "./desktopLayoutComponents/DecorativeTopPageLi
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
+import Aboutme from "./pages/Aboutme";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -28,7 +29,8 @@ export default function DesktopLayout(){
                                 <Route path="/" element={<Home />} />
                                 <Route path="/projects" element={<Projects />} />
                                 <Route path="/skills" element={<Skills />} />
-                            </Routes>
+                                <Route path="/aboutme" element={<Aboutme />} />
+                            </Routes> 
                         </div>
                     </div>
 

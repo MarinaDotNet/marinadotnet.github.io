@@ -1,0 +1,76 @@
+import {NumberedCodeBloc, CodeKeyWords, CodeValues, ClassName, Tab, Comment} from "../jointLayoutComponents/CodeTokens";
+
+export default function AboutMe(){
+
+    return <NumberedCodeBloc children = {[
+        <><CodeKeyWords>using</CodeKeyWords> Creativity;</>,
+        <><CodeKeyWords>using</CodeKeyWords> Knowledges;</>,
+        <><CodeKeyWords>using</CodeKeyWords> Story.Context;</>,
+        <><CodeKeyWords>using</CodeKeyWords> Etc.*;</>,
+        <br/>,
+        <><CodeKeyWords>namespace</CodeKeyWords> MarinaDotNet;</>,
+        <br/>,
+        <Comment>&lt;summary&gt;</Comment>,
+        <Comment>Hi, I'm Marina Sichova - a .NET Developer passionate</Comment>,
+        <Comment>about building robust & innovative software solutions.</Comment>,
+        <Comment>&lt;/summary&gt;</Comment>,
+        <br/>,
+        <><CodeKeyWords>public class</CodeKeyWords> <ClassName>AboutMe</ClassName> : <CodeValues>JuniorDeveloper</CodeValues></>,
+        <>&#123;</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public string</CodeKeyWords>[] Personality =&gt;</>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/><CodeValues>"A person with a strong focus on creating robust and innovative software solutions."</CodeValues>,</>,
+        <><Tab number={4}/><CodeValues>"I have a strong passion for coding and finding effective development solutions."</CodeValues></>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public string</CodeKeyWords>[] ProgrammingAndScriptingLanguages =&gt;</>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/>
+            <CodeValues>"C#"</CodeValues>, 
+            <CodeValues>"SQL"</CodeValues>, 
+            <CodeValues>"JavaScript"</CodeValues>, 
+            <CodeValues>"Java"</CodeValues>, 
+            <CodeValues>"Python"</CodeValues>
+        </>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public string</CodeKeyWords>[] Technologies =&gt;</>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/>
+            <CodeValues>"NoSQL"</CodeValues>,  
+            <CodeValues>"HTML5/CSS"</CodeValues>, 
+            <CodeValues>"SVG"</CodeValues>
+        </>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public string</CodeKeyWords>[] CurrentlyLearning =&gt;</>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/>
+            <CodeValues>"React"</CodeValues>, 
+            <CodeValues>"Azure"</CodeValues>,    
+            <CodeValues>"Unit Testing"</CodeValues>
+        </>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public string</CodeKeyWords>[] FocusAreas =&gt;</>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/><CodeValues>"I specialize in building RESTful APIs, desktop and web applications, and web services using the .NET framework and ASP.NET Core MVC."</CodeValues></>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public</CodeKeyWords> <ClassName>Uri</ClassName> DownloadMyResume =&gt; <CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://marinadotnet.github.io/portfolio-react" className="in-active-link">https://marinadotnet.github.io/portfolio-react</a>"</CodeValues>);</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public</CodeKeyWords> <ClassName>Uri</ClassName> MyStaticPortfolio =&gt; <CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://marinadotnet.github.io">https://marinadotnet.github.io</a>"</CodeValues>);</>,
+        <br/>,
+        <><Tab number={2}/><CodeKeyWords>public</CodeKeyWords> <ClassName>Uri</ClassName>[] Contact =&gt;</>,
+        <br/>,
+        <><Tab number={2}/>[</>,
+        <><Tab number={4}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="mailto:msichova@outlook.com">about:Email</a>"</CodeValues>),</>,
+        <><Tab number={4}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://github.com/MarinaDotNet">about:GitHub</a>"</CodeValues>),</>,
+        <><Tab number={4}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au">about:LinkedIn</a>"</CodeValues>),</>,
+        <><Tab number={4}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://wa.me/+61433881789">about:WhatsApp</a>"</CodeValues>),</>,
+        <><Tab number={2}/>];</>,
+        <br/>,
+        <>&#125;</>
+    ]} />;
+}
