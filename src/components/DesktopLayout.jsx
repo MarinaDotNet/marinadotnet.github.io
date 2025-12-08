@@ -2,6 +2,7 @@ import NavBar from "./jointLayoutComponents/NavBar";
 import DecorativeTopComponent from "./desktopLayoutComponents/DecorativeTopComponent";
 import PageContentLeftSide from "./desktopLayoutComponents/PageContentLeftSide";
 import PageContentRightSide from "./desktopLayoutComponents/PageContentRightSide";
+import DecorativeTopPageLine from "./desktopLayoutComponents/DecorativeTopPageLine";
 
 import Home from "./pages/Home";
 
@@ -19,7 +20,7 @@ export default function DesktopLayout(){
                     <PageContentLeftSide />
                     <div className="middle-content">
                         <NavBar />
-                        
+                        <DecorativeTopPageLine />
                         <div className="component-box">
                             <Routes>
                                 <Route path="/" element={<Home />} />

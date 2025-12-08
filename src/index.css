@@ -634,3 +634,15 @@ button.btn-abc-check{
   padding-left: 8vw;   
   text-indent: -8vw;    
 }
+
+/* Decorative Header Stripe style for DecorativeTopPageLine.jsx element*/
+.header-stripe{
+  background-color: var(--color-frame);
+  height: fit-content; 
+  padding: 0.5rem;
+  border-top: 2px solid var(--color-highlight-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
