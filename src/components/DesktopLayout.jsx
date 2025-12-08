@@ -5,6 +5,7 @@ import PageContentRightSide from "./desktopLayoutComponents/PageContentRightSide
 import DecorativeTopPageLine from "./desktopLayoutComponents/DecorativeTopPageLine";
 
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ export default function DesktopLayout(){
                         <div className="component-box">
                             <Routes>
                                 <Route path="/" element={<Home />} />
+                                <Route path="/projects" element={<Projects />} />
                             </Routes>
                         </div>
                     </div>
