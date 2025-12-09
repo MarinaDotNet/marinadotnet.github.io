@@ -4,7 +4,6 @@ import PageContentLeftSide from "./desktopLayoutComponents/PageContentLeftSide";
 import PageContentRightSide from "./desktopLayoutComponents/PageContentRightSide";
 import DecorativeTopPageLine from "./desktopLayoutComponents/DecorativeTopPageLine";
 import DeveloperPowerShell from "./jointLayoutComponents/DeveloperPowerShell";
-import {ThemeProvider} from "./jointLayoutComponents/ThemeContext";
 
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -39,9 +38,7 @@ export default function DesktopLayout(){
                     </div>
                     <PageContentRightSide />
                 </div>
-                <ThemeProvider>
-                    <DeveloperPowerShell />
-                </ThemeProvider>
+                <DeveloperPowerShell />
             </div>        
         </Router>
     );
