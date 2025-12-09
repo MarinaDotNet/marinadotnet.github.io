@@ -33,7 +33,7 @@ export default function DecorativeTopPageLine(){
             type="button"
             onClick={toggleTheme}
             className="color-theme-icon"
-            title="Change Theme">
+            title="Change Theme" >
                 {
                     theme === "light"
                     ? <LightThemeIcon />
