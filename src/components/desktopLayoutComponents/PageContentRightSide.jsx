@@ -91,25 +91,25 @@ export default function PageContentRightSide(){
                 <Accordion title="Social Media Links" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
                         <li><a href="https://github.com/MarinaDotNet" title="Visit my GitHub page">Visit me at GitHub</a></li>
-                        <hr className="line" />
+                        <li><hr className="line" /></li>
                         <li><a href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" title="Visit my LinkedIn page">Visit me at LinkedIn</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                         <li><a href="mailto:msichova@outlook.com" title="Send to me email">Contact me via Email</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                         <li><a href="https://wa.me/+61433881789" title="Contact Me via WhatsUp">Contact me at WhatsUp</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                         <li><a href="https://www.facebook.com/msichova/" title="Contact to me via Facebook">Contact me at Facebook</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
                 <Accordion title="Download My Resume" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
                         <li><a href="javascript:void(0)">In PDF format</a></li>
-                        <hr className="line" />
+                        <li><hr className="line" /></li>
                         <li><a href="javascript:void(0)">In DOC format</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                         <li><a href="javascript:void(0)"> In PNG format</a></li>
-                        <hr className="line"/>
+                        <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
             </div>
