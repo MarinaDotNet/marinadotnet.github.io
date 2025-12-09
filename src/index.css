@@ -629,16 +629,24 @@ button.btn-abc-check{
   background-color: var(--color-frame);
 }
 
-/*Firefox Scrollbar Styling */
-@-moz-document url-prefix() {
+/* Firefox Scrollbar Styling */
+@supports (scrollbar-width: thin) {
   * {
-  scrollbar-width: thin; 
-  scrollbar-color: var(--color-border) var(--color-frame);
-}
-  .component-box{
-  border-right: 10px solid var(--color-frame);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-frame);
   }
+  .component-box { border-right: 10px solid var(--color-frame); }
 }
+
+/* test scrollbar-color (two values) */
+@supports (scrollbar-color: var(--color-border) var(--color-frame)) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-frame);
+  }
+  .component-box { border-right: 10px solid var(--color-frame); }
+}
+
 /* #endregion Scrollbar */
 
 /* #region CodeTokens styles */
