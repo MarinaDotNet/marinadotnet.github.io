@@ -351,6 +351,17 @@ border: none;
 
 /* #region Mobile Layouts */
 
+.side-bar{
+  width: 10svw;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-button-bg);
+}
+.page-content{
+  display: flex;
+  flex-direction: row;
+}
+
 @media screen and (max-width: 600px), screen and (max-height: 500px){
   /* #region NavBar styles for Mobile Layout */
   .nav-bar{
@@ -399,6 +410,37 @@ border: none;
     line-height: 1svh;
 }
 /* #endregion NavBar styles for Mobile Layout */
+
+.page-layout{
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .color-theme-icon{
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  .component-box{
+    border: 2px solid var(--color-border);
+    overflow: scroll;
+    width: 90vw;
+    height: 60vh;
+  }
+
+  .footer{
+    width: 90vw;
+    max-height: 40vh;
+  }
+
+  .text-primary{
+    font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
+  }
 }
 
 /* #endregion Mobile Layouts */
