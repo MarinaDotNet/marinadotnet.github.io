@@ -188,6 +188,7 @@ export default function DeveloperPowerShell()
                 name="consoleInput"
                 className="console-input"
                 type="text"
+                title="The Developer Powershell imitation, enter 'help'"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 autoFocus />
