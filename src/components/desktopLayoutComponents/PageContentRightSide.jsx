@@ -60,14 +60,14 @@ export default function PageContentRightSide(){
                 </div>
 
                 <div className="window-controls"> {/**properties-windows-controls */}
-                     <button className="btn-icon-window icon-controls">{ /**btn-icon-server  icon-server*/}
+                     <button className="btn-icon-window icon-controls" title="immitation of button">{ /**btn-icon-server  icon-server*/}
                         {/* down arrow */}
                         <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.91713 8.55482L0.42433 0.174181H11.4099L5.91713 8.55482Z" fill="var(--color-text-primary)" />
                         </svg>
                     </button>
 
-                    <button className="btn-icon-window icon-controls"> { /**btn-icon-server  icon-server*/}
+                    <button className="btn-icon-window icon-controls" title="immitation of button"> { /**btn-icon-server  icon-server*/}
                         {/* square and line */}
                         <svg viewBox="0 0 17 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="6.9834" y="0.174164" width="9.06077" height="5.5871" fill="var(--color-text-primary)" />
@@ -75,7 +75,7 @@ export default function PageContentRightSide(){
                         </svg>
                     </button>
 
-                    <button className="btn-icon-window icon-controls"> { /**btn-icon-server icon-server */}
+                    <button className="btn-icon-window icon-controls" title="immitation of button"> { /**btn-icon-server icon-server */}
                         {/* X icon */}
                         <svg viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line y1="-0.5" x2="15.4324" y2="-0.5" transform="matrix(0.689722 -0.724074 0.804166 0.594405 1.91307 12.5548)" stroke="var(--color-text-primary)" />
