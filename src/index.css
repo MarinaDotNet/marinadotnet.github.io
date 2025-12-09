@@ -671,9 +671,10 @@ button.btn-abc-check{
 /* #endregion */
 
 /* #region Console styles */
-
 .footer{
-    max-height: 40vh;
+  max-height: 40vh;
+  border: solid 2px var(--color-frame);
+  border-radius: 0;
 }
 
 /* Console Window Styling */
