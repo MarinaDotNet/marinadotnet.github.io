@@ -375,7 +375,7 @@ border: none;
   justify-items: center;
   flex-direction: row;
   overflow: hidden;
-  height: 100%;
+  height: 100svh; /*95*/
 }
 
 @media screen and (max-width: 600px), screen and (max-height: 500px){
@@ -385,6 +385,11 @@ border: none;
     align-items: center;
     width: 100%;
     margin-left: 2px;
+
+    height: 5svh;
+    min-height: 5svh;
+    max-height: 5svh;
+    flex-shrink: 0;
   }
   .responsive-nav-button button.active{
     font-size: clamp(0.65rem, 0.7svw + 0.15rem, 0.875rem);
@@ -438,8 +443,8 @@ border: none;
 
   .middle-content{
     display: flex;
-    /*justify-content:space-between;*/
-    justify-content: flex-start;
+    flex-direction: column;
+    /*justify-content: flex-start;*/
     width: 90svw;
     height: 100%;
   }
@@ -452,14 +457,20 @@ border: none;
     border: 2px solid var(--color-border) !important;
     overflow: scroll;
     width: 99%;
-    height: 100svh;
-    min-height: 60svh;
+    /*height: 60svh;*/
+    min-height: 50svh;
+    /*max-height: 100svh;*/
     display: flex;
+
+    flex-grow: 1;             /* Take remaining space */     /* Never go smaller than 50svh */
   }
 
   .footer{
     width: 99%;
     margin: 1px 1px 0 1px;
+
+    max-height: 40svh;
+    flex-shrink: 1; 
   }
 
   .text-primary{
