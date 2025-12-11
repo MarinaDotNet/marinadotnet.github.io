@@ -456,13 +456,16 @@ border: none;
 
   .footer{
     width: 99%;
-    max-height: 40svh;
+    height: 40svh;
     margin: 1px 1px 0 1px;
   }
 
   .text-primary{
     font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
   }
+}
+.console-window{
+  max-height: 30svh !important;
 }
 
 .download-btn svg {
