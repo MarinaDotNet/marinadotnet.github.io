@@ -359,11 +359,12 @@ border: none;
 
 .side-bar{
   width: 10svw;
-  height: 99%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  align-self: stretch;
   background-color: var(--color-button-bg);
   border: 2px solid var(--color-frame);
   gap: 2svw;
@@ -375,7 +376,7 @@ border: none;
   justify-items: center;
   flex-direction: row;
   overflow: hidden;
-  height: 100svh; /*95*/
+  height: 100svh; 
 }
 
 @media screen and (max-width: 600px), screen and (max-height: 500px){
@@ -457,7 +458,7 @@ border: none;
     width: 99%;
     min-height: 50svh;
     display: flex;
-    flex-grow: 1;             /* Take remaining space */     /* Never go smaller than 50svh */
+    flex-grow: 1;
   }
 
   .footer{
