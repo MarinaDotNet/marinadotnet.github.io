@@ -439,7 +439,7 @@ border: none;
   .middle-content{
     display: flex;
     justify-content:space-between;
-    width: 100%;
+    width: 90svw;
     height: 100%;
   }
   .color-theme-icon{
