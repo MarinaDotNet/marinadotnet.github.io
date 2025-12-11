@@ -43,7 +43,7 @@ export default function SideBar(){
                     <Facebook className="icon" />
                 </button>
             </div>
-            <div class="full-line"></div>
+            <div className="full-line"></div>
             <div className="download-wrapper">
                 <button className="download-btn" title="Download PDF resume">
                     <Download className="icon" />
