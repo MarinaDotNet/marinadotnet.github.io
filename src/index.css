@@ -436,7 +436,6 @@ border: none;
     gap: 0;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     width: 100svw;
     height: 100svh;
   }
@@ -444,7 +443,6 @@ border: none;
   .middle-content{
     display: flex;
     flex-direction: column;
-    /*justify-content: flex-start;*/
     width: 90svw;
     height: 100%;
   }
@@ -457,18 +455,14 @@ border: none;
     border: 2px solid var(--color-border) !important;
     overflow: scroll;
     width: 99%;
-    /*height: 60svh;*/
     min-height: 50svh;
-    /*max-height: 100svh;*/
     display: flex;
-
     flex-grow: 1;             /* Take remaining space */     /* Never go smaller than 50svh */
   }
 
   .footer{
     width: 99%;
     margin: 1px 1px 0 1px;
-
     max-height: 40svh;
     flex-shrink: 1; 
   }
