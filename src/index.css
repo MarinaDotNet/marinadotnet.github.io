@@ -438,7 +438,8 @@ border: none;
 
   .middle-content{
     display: flex;
-    justify-content:space-between;
+    /*justify-content:space-between;*/
+    justify-content: flex-start;
     width: 90svw;
     height: 100%;
   }
@@ -451,21 +452,19 @@ border: none;
     border: 2px solid var(--color-border) !important;
     overflow: scroll;
     width: 99%;
-    height: 60svh;
+    height: 100svh;
+    min-height: 60svh;
+    display: flex;
   }
 
   .footer{
     width: 99%;
-    height: 40svh;
     margin: 1px 1px 0 1px;
   }
 
   .text-primary{
     font-size: clamp(0.65rem, 0.7vw + 0.15rem, 0.875rem);
   }
-}
-.console-window{
-  max-height: 30svh !important;
 }
 
 .download-btn svg {
