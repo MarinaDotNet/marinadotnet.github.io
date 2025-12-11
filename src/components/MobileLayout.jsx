@@ -18,7 +18,7 @@ export default function MobileLayout(){
                 <DecorativeTopComponentMob />
                 <div className="page-content">
                     <SideBar />
-                    <div>
+                    <div className="middle-content">
                         <NavBar />
                         <div className="component-box">
                             <Routes>
