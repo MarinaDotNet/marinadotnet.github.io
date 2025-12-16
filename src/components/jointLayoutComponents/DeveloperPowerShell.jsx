@@ -1,8 +1,27 @@
 import {useState, useContext, useEffect, useRef} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {ThemeContext} from "./ThemeContext";
+import ConsoleSimulator from "../jointLayoutComponents/ConsoleSimulator";
 
-export default function DeveloperPowerShell()
+/**
+ * Imitation of the Visual Studio Developer PowerShell.
+ *
+ * Supports navigation commands between pages:
+ *  - 'h' or 'home' or 'home.cs' or '/home.cs' to navigate to the home/index page,
+ *  - 'p' or 'projects' or 'projects.cs' or '/projects.cs' to navigate to the projects page,
+ *  - 's' or 'skills' or 'skills.cs' or '/skills.cs'  to navigate to the skills page,
+ *  - 'a' or 'about_me' or 'about_me.cs' or '/about_me.cs'  to navigate to the aboutme page,
+ *  - 'c' or 'contact' or 'contact.cs' or '/contact.cs'  to navigate to the contact page,
+ * 
+ * Other supported commands:
+ *  - 'theme' or 'switch-theme' or 'th' the switching color theme command,
+ *  - 'help' command that displays the list of available commands,
+ *  - 'cls' or 'clear' to clear the DeveloperPowerShell all output.
+ *
+ * @param {boolean} isAnimationOn Indicates whether console command animations are enabled.
+ * @returns {JSX.Element}
+ */
+export default function DeveloperPowerShell({ isAnimationOn })
 {
     // Default boot message lines displayed in the PowerShell
     const defaultLines = [
@@ -15,6 +34,8 @@ export default function DeveloperPowerShell()
      // State for console lines and user input
     const [lines, setLines] = useState(defaultLines);
     const [userInput, setUserInput] = useState("");
+    // Active command, what user just entered
+    const [activeCommand, setActiveCommand] = useState(null);
 
     // Reference to scroll the console to the bottom on new output
     const consoleRef = useRef(null);
@@ -31,71 +52,119 @@ export default function DeveloperPowerShell()
     const {toggleTheme} = useContext(ThemeContext);
 
     // Processes a command typed by the user
-    const handleCommand = (cmd) => {
-        let response = "";
+    const handleCommand = (cmd) => 
+    {
+        const cmdToLower = cmd.toLowerCase();
+        switch(cmdToLower)
+        {
+             case "help": 
+            {
+                const helpText = (
+                        <span key={cmd}>
+                            Available commands:<br />
+                            press <span className="cmd"> /home.cs</span> or <span className="cmd">home</span> or <span  className="cmd">h</span> to go to home page,<br />
+                            press <span className="cmd"> /projects.cs</span> or <span className="cmd">projects</span> or <span className="cmd">p</span> to go to projects page,<br />
+                            press <span className="cmd"> /skills.cs</span> or <span  className="cmd">skills</span> or <span  className="cmd">s</span> to go to skills page,<br />
+                            press <span className="cmd"> /about_me.cs</span> or <span  className="cmd">about_me</span> or <span  className="cmd">a</span> to go to about_me page,<br />
+                            press <span className="cmd"> /contact.cs</span> or <span  className="cmd">contact</span> or <span className="cmd">c</span> to go to contact page,<br />
+                            press <span className="cmd"> switch-theme</span> or <span  className="cmd">theme</span> or <span className="cmd">th</span> to switch color theme,<br />
+                            press <span className="cmd"> clear</span> or <span  className="cmd">cls</span> to clear the console
+                        </span>
+                    );
+                setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>, helpText]);
+                return;
+            }
 
-        switch(cmd.toLowerCase()){
-            case "help":
-                response = <span>Available commands:<br/>
-                    {/* List available commands*/}
-                    press <span className="cmd"> /home.cs</span> or <span className="cmd">home</span> or <span className="cmd">h</span> to go to home page,<br/> 
-                    press <span className="cmd"> /projects.cs</span> or <span className="cmd">projects</span> or <span className="cmd">p</span> to go to projects page,<br/> 
-                    press <span className="cmd"> /skills.cs</span> or <span className="cmd">skills</span> or <span className="cmd">s</span> to go to skills page,<br/> 
-                    press <span className="cmd"> /about_me.cs</span> or <span className="cmd">about_me</span> or <span className="cmd">a</span> to go to about_me page,<br/>
-                    press <span className="cmd"> /contact.cs</span> or <span className="cmd">contact</span> or <span className="cmd">c</span> to go to contact page,<br/> 
-                    press <span className="cmd"> switch-theme</span> or <span className="cmd">theme</span> or <span className="cmd">th</span> to switch color theme,<br/> 
-                    press <span className="cmd"> clear</span> or <span className="cmd">cls</span> to clear the console</span>;
-                break;
-            case "/home.cs":
-            case "home": 
-            case "home.cs":
-            case "h":
-                navigate("/");
-                break;
-            case "/projects.cs":
-            case "projects": 
-            case "projects.cs":
-            case "p":
-                navigate("/projects");
-                break;
-            case "/skills.cs": 
-            case "skills": 
-            case "skills.cs":
-            case "s":
-                navigate("/skills");
-                break;
-            case "/about_me.cs": 
-            case "about_me": 
-            case "about_me.cs":
-            case "a":
-                navigate("/aboutme");
-                break;
-            case "/contact.cs": 
-            case "contact": 
-            case "contact.cs":
-            case "c":
-                navigate("/contact");
-                break;
-            case "theme":
-            case "switch-theme":
-            case "th":
-                toggleTheme();
-                break;
             case "clear":
             case "cls":
                 {/* Reset to default lines */}
                 setLines(defaultLines);
                 return;
+
             default:
-                {/* Handle unknown command */}
-                response = <span>
-                    <span className="text-warning">Unknown command: 
-                        <span className="cmd-warning"> '{cmd}'</span>
-                        </span>, try '<span className="cmd">help</span>'
-                     to see available commands.</span>;
+                { 
+                    const navigatableCommands = [
+                        "h", "home", "home.cs", "/home.cs",
+                        "p", "projects", "projects.cs", "/projects.cs",
+                        "s", "skills", "skills.cs", "/skills.cs",
+                        "a", "about_me", "about_me.cs", "/about_me.cs",
+                        "c", "contact", "contact.cs", "/contact.cs",
+                        "theme", "switch-theme", "th"
+                    ];
+                
+
+                setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>]);
+
+                if(navigatableCommands.includes(cmdToLower))
+                {
+                    // Prevent duplicate command execution
+                    if(activeCommand)
+                    {
+                        return;
+                    }
+
+                    if(isAnimationOn)
+                    {
+                        setActiveCommand(cmd); // turn on animation
+                    }
+                    else
+                    {
+                        executeCommand(cmd); // without animation, just execute command
+                    }
+                }
+                else
+                {
+                    // if the user entered not supported command
+                    setLines(prev => 
+                    [
+                        ...prev,
+                        <span key="cmd" className="text-warning">
+                            Unknown command: <span className="cmd-warning"> '{cmd}'</span>, try '<span className="cmd">help</span>'
+                        </span>
+                    ]);
+                }
+            }   
         }
-        // Append user's command and response to the console output
-        setLines([...lines, <span className="cmd">{'>'}{cmd}</span>, response]);
+    };
+    
+    const executeCommand = (cmd) => {
+        switch (cmd) {
+            case "h":
+            case "home":
+            case "home.cs":
+            case "/home.cs":
+                navigate("/");
+                break;
+            case "p":
+            case "projects":
+            case "projects.cs":
+            case "/projects.cs":
+                navigate("/projects");
+                break;
+            case "s":
+            case "skills":
+            case "skills.cs":
+            case "/skills.cs":
+                navigate("/skills");
+                break;
+            case "a":
+            case "about_me":
+            case "about_me.cs":
+            case "/about_me.cs":
+                navigate("/aboutme");
+                break;
+            case "c":
+            case "contact":
+            case "contact.cs":
+            case "/contact.cs":
+                navigate("/contact");
+                break;
+            case "th":
+            case "theme":
+            case "switch-theme":
+                toggleTheme();
+                break;
+        }
     };
 
     // Handles form submission (Enter key)
@@ -182,6 +251,18 @@ export default function DeveloperPowerShell()
                 </div>
             ))}
 
+           {activeCommand && (
+                <ConsoleSimulator
+                    isAnimationOn={isAnimationOn}
+                    commandKey={activeCommand}
+                    onLineComplete={(line) => setLines(prev => [...prev, line])}
+                    onComplete={() => {
+                        executeCommand(activeCommand.toLowerCase());
+                        setActiveCommand(null);
+                        }}
+                />
+            )}
+
             <form onSubmit={handleSubmit} className="console-input-form" name="consoleForm">
                 <span name="consolePrefics" className="console-prefics">{"PS MarinaDotNet.github.io/#" + path + ">"}</span>
                 <input
@@ -191,6 +272,7 @@ export default function DeveloperPowerShell()
                 title="The Developer Powershell imitation, enter 'help'"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
+                disabled={!!activeCommand}
                 autoFocus />
             </form>
         </div>

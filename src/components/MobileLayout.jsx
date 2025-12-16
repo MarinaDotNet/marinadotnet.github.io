@@ -30,7 +30,7 @@ export default function MobileLayout(){
                                 <Route path="#" element={<Home />} />
                             </Routes>
                         </div>
-                            <DeveloperPowerShell />
+                            <DeveloperPowerShell isAnimationOn={true}/>
                     </div>
                 </div>            
             </div>
