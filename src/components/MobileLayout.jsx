@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Aboutme from "./pages/Aboutme";
 import Contact from "./pages/Contact";
+import Transition from "./pages/Transition";
 
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
 
@@ -28,6 +29,7 @@ export default function MobileLayout(){
                                 <Route path="/aboutme" element={<Aboutme />} />
                                 <Route path="/contact" element={<Contact />} />
                                 <Route path="#" element={<Home />} />
+                                <Route path="/transition" element={<Transition />} />
                             </Routes>
                         </div>
                             <DeveloperPowerShell isAnimationOn={true}/>

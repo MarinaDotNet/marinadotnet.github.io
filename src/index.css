@@ -39,6 +39,9 @@
 
   --color-bottom-shadow-horizontal-line: rgba(0, 0, 0, 0.25);
   --color-top-shadow-horizontal-line: rgba(255, 255, 255, 0.4);
+
+  --svw: 1svw;
+  --svh: 1svh;
 }
 
 /* Application colour palette/theme, for light theme version */

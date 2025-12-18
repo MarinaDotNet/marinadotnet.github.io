@@ -106,6 +106,7 @@ export default function DeveloperPowerShell({ isAnimationOn })
                     if(isAnimationOn)
                     {
                         setActiveCommand(cmd); // turn on animation
+                        navigate('/transition');
                     }
                     else
                     {
@@ -162,6 +163,10 @@ export default function DeveloperPowerShell({ isAnimationOn })
             case "th":
             case "theme":
             case "switch-theme":
+                if(isAnimationOn)
+                {
+                    navigate(-1);
+                } 
                 toggleTheme();
                 break;
         }
