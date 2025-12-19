@@ -22,7 +22,33 @@ import ConsoleSimulator from "../jointLayoutComponents/ConsoleSimulator";
  */
 export default function DeveloperPowerShell()
 {
-    const [isAnimationOn, setIsAnimationOn] = useState(true);
+    /**
+     * Controls whether console command animation is enabled.
+     *
+     * - State is persisted in localStorage under the key `isAnimationOn`
+     * - localStorage stores values as strings, so explicit boolean parsing is required
+     * - Default value is `true` if nothing is stored
+     */
+    const [isAnimationOn, setIsAnimationOn] =  useState(() => {
+        const stored = localStorage.getItem("isAnimationOn");
+        return stored === null ? true : stored === "true";
+    });
+
+    /**
+     * Synchronizes animation state with localStorage
+     * whenever the value changes.
+     */
+    useEffect(() => {
+        localStorage.setItem("isAnimationOn", isAnimationOn);
+    }, [isAnimationOn]);
+
+    /**
+     * Toggles console animation on/off.
+     * Safe to call from UI buttons or console commands.
+     */
+    function toggleAnimation(){
+        setIsAnimationOn(prev => !prev);
+    };
 
     // Default boot message lines displayed in the PowerShell
     const defaultLines = [
@@ -251,7 +277,7 @@ export default function DeveloperPowerShell()
                 <button
                 className="animation-toggle-button"
                 title="Toggle console animation"
-                onClick={() => setIsAnimationOn(prev => !prev)}>
+                onClick={() => toggleAnimation()}>
                     {isAnimationOn ? 'Animation ON' : 'Animation OFF'}
                 </button>
                 <div className="divider-vertical divider-single-solid"></div>
