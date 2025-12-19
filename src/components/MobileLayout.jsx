@@ -32,7 +32,7 @@ export default function MobileLayout(){
                                 <Route path="/transition" element={<Transition />} />
                             </Routes>
                         </div>
-                            <DeveloperPowerShell isAnimationOn={true}/>
+                            <DeveloperPowerShell />
                     </div>
                 </div>            
             </div>

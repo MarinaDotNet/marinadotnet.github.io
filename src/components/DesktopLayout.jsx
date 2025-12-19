@@ -40,7 +40,7 @@ export default function DesktopLayout(){
                     </div>
                     <PageContentRightSide />
                 </div>
-                <DeveloperPowerShell isAnimationOn={true}/>
+                <DeveloperPowerShell />
             </div>        
         </Router>
     );

@@ -18,11 +18,12 @@ import ConsoleSimulator from "../jointLayoutComponents/ConsoleSimulator";
  *  - 'help' command that displays the list of available commands,
  *  - 'cls' or 'clear' to clear the DeveloperPowerShell all output.
  *
- * @param {boolean} isAnimationOn Indicates whether console command animations are enabled.
  * @returns {JSX.Element}
  */
-export default function DeveloperPowerShell({ isAnimationOn })
+export default function DeveloperPowerShell()
 {
+    const [isAnimationOn, setIsAnimationOn] = useState(true);
+
     // Default boot message lines displayed in the PowerShell
     const defaultLines = [
         "**********************************************",
@@ -129,7 +130,8 @@ export default function DeveloperPowerShell({ isAnimationOn })
     };
     
     const executeCommand = (cmd) => {
-        switch (cmd) {
+        const cmdToLower = cmd.toLowerCase();
+        switch (cmdToLower) {
             case "h":
             case "home":
             case "home.cs":
@@ -245,6 +247,15 @@ export default function DeveloperPowerShell({ isAnimationOn })
                     <rect x="7.35715" y="10.8609" width="4.14286" height="4.43397" fill="var(--color-background)" stroke="var(--color-text-muted)"/>
                 </svg>
                 <div className="divider-vertical divider-single-solid"></div>
+
+                <button
+                className="animation-toggle-button"
+                title="Toggle console animation"
+                onClick={() => setIsAnimationOn(prev => !prev)}>
+                    {isAnimationOn ? 'Animation ON' : 'Animation OFF'}
+                </button>
+                <div className="divider-vertical divider-single-solid"></div>
+
         {/* powershell-bar div end */}
         </div>
 
