@@ -104,11 +104,11 @@ export default function PageContentRightSide(){
                 </Accordion>
                 <Accordion title="Download My Resume" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
-                        <li><a href="javascript:void(0)">In PDF format</a></li>
+                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.pdf" download target="_blank" title="Download CV in PDF">In PDF format</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="javascript:void(0)">In DOC format</a></li>
+                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.docx" download title="Download CV in DOC">In DOC format</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="javascript:void(0)"> In PNG format</a></li>
+                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.png" download target="_blank" title="Download CV in PNG"> In PNG format</a></li>
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
