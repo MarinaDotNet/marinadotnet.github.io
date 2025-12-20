@@ -14,6 +14,9 @@ import {COMMAND_MAP} from "../jointLayoutComponents/commandsData";
  *    Enables or disables the animation. 
  *    When false, the component should immediately complete execution.
  * 
+ * @param {number} animationSpeed
+ *    Animation speed in milliseconds per line.
+ * 
  * @param {string} commandKey
  *    Normalized command identifier used to resolve animation content.
  * 
@@ -26,10 +29,10 @@ import {COMMAND_MAP} from "../jointLayoutComponents/commandsData";
  * @returns {JSX.Element|null}
  *    Returns null when animation is disabled or no output is rendered.
  */
-export default function ConsoleSimulator({ isAnimationOn, commandKey, onLineComplete, onComplete }) {
+export default function ConsoleSimulator({ isAnimationOn, animationSpeed, commandKey, onLineComplete, onComplete }) {
   const [commandLines, setCommandLines] = useState([]);
   const [lineIndex, setLineIndex] = useState(0);
-  const lineDelay = 200;
+  const lineDelay = animationSpeed;
 
   useEffect(() => {
     if (!commandKey || !isAnimationOn) 
@@ -82,7 +85,7 @@ export default function ConsoleSimulator({ isAnimationOn, commandKey, onLineComp
     }, lineDelay);
 
     return () => clearTimeout(timer);
-  }, [lineIndex, commandLines, isAnimationOn, onLineComplete, onComplete]);
+  }, [lineIndex, commandLines, isAnimationOn, animationSpeed, lineDelay, onLineComplete, onComplete]);
 
   // The component doesn't render anything visually 
   return null;

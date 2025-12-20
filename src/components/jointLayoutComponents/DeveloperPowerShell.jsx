@@ -50,6 +50,17 @@ export default function DeveloperPowerShell()
         setIsAnimationOn(prev => !prev);
     };
 
+    /**
+     * Animation speed in milliseconds per line
+     */
+    const [animationSpeed, setAnimationSpeed] = useState(() => {
+        const stored = localStorage.getItem("animationSpeed");
+        return stored ? Number(stored) : 400;
+    });
+    useEffect(() => {
+        localStorage.setItem("animationSpeed", String(animationSpeed));
+    }, [animationSpeed]);
+
     // Default boot message lines displayed in the PowerShell
     const defaultLines = [
         "**********************************************",
@@ -280,6 +291,16 @@ export default function DeveloperPowerShell()
                 onClick={() => toggleAnimation()}>
                     {isAnimationOn ? 'Animation ON' : 'Animation OFF'}
                 </button>
+
+                <select
+                    value={animationSpeed}
+                    onChange={ e => setAnimationSpeed(Number(e.target.value))}
+                    hidden={!isAnimationOn}
+                >
+                    <option value={200}>Fast</option>
+                    <option value={400}>Normal</option>
+                    <option value={800}>Slow</option>
+                </select>
                 <div className="divider-vertical divider-single-solid"></div>
 
         {/* powershell-bar div end */}
@@ -296,6 +317,7 @@ export default function DeveloperPowerShell()
            {activeCommand && (
                 <ConsoleSimulator
                     isAnimationOn={isAnimationOn}
+                    animationSpeed={animationSpeed}
                     commandKey={activeCommand}
                     onLineComplete={(line) => setLines(prev => [...prev, line])}
                     onComplete={() => {
