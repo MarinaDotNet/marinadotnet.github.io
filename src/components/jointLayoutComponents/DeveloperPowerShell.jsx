@@ -305,7 +305,8 @@ export default function DeveloperPowerShell()
                 </svg>
                 <div className="divider-vertical divider-single-solid"></div>
 
-                <button
+                <div className="animation-controls">
+                    <button
                 className="animation-toggle-button"
                 title="Toggle console animation"
                 onClick={() => toggleAnimation()}>
@@ -313,6 +314,7 @@ export default function DeveloperPowerShell()
                 </button>
 
                 <select
+                    className="animation-speed-select"
                     value={animationSpeed}
                     onChange={ e => setAnimationSpeed(Number(e.target.value))}
                     hidden={!isAnimationOn}
@@ -321,6 +323,8 @@ export default function DeveloperPowerShell()
                     <option value={400}>Normal</option>
                     <option value={800}>Slow</option>
                 </select>
+                </div>
+                
                 <div className="divider-vertical divider-single-solid"></div>
 
         {/* powershell-bar div end */}
