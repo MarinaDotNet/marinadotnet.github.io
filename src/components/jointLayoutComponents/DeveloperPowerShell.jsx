@@ -106,7 +106,11 @@ export default function DeveloperPowerShell()
                             press <span className="cmd"> /about_me.cs</span> or <span  className="cmd">about_me</span> or <span  className="cmd">a</span> to go to about_me page,<br />
                             press <span className="cmd"> /contact.cs</span> or <span  className="cmd">contact</span> or <span className="cmd">c</span> to go to contact page,<br />
                             press <span className="cmd"> switch-theme</span> or <span  className="cmd">theme</span> or <span className="cmd">th</span> to switch color theme,<br />
-                            press <span className="cmd"> clear</span> or <span  className="cmd">cls</span> to clear the console
+                            press <span className="cmd"> clear</span> or <span  className="cmd">cls</span> to clear the console,<br/>
+                            press <span className="cmd"> anim off</span> or <span className="cmd"> anim on</span> to turn on/off the animation,<br/>
+                            press <span className="cmd"> anim speed fast</span> to switch to Fast animation speed,<br/>
+                            press <span className="cmd"> anim speed normal</span> to switch to Normal animation speed,<br/>
+                            press <span className="cmd"> anim speed slow</span> to switch to Slow animation speed
                         </span>
                     );
                 setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>, helpText]);
@@ -117,6 +121,22 @@ export default function DeveloperPowerShell()
             case "cls":
                 {/* Reset to default lines */}
                 setLines(defaultLines);
+                return;
+
+            case "anim off":
+                setIsAnimationOn(false);
+                return;
+            case "anim on":
+                setIsAnimationOn(true);
+                return;
+            case "anim speed fast":
+                setAnimationSpeed(200);
+                return;
+            case "anim speed normal":
+                setAnimationSpeed(400);
+                return;
+            case "anim speed slow":
+                setAnimationSpeed(800);
                 return;
 
             default:
