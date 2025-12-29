@@ -62,7 +62,7 @@ export default function Projects(){
                 <><Tab number={6} />&#123;</>,
                 <><Tab number={8} />Name = <CodeValues>"Static Portfolio website"</CodeValues>,</>,
                 <><Tab number={8} />Description = <CodeValues>"A set of simple static web pages, hosted on GitHub."</CodeValues>,</>,
-                <><Tab number={8} />GitHub = <CodeKeyWords>new </CodeKeyWords><ClassName>Uri</ClassName>(<CodeValues><a href="https://github.com/MarinaDotNet/marinadotnet.github.io/tree/main/static">"about: GitHub"</a></CodeValues>),</>,
+                <><Tab number={8} />GitHub = <CodeKeyWords>new </CodeKeyWords><ClassName>Uri</ClassName>(<CodeValues><a href="https://github.com/MarinaDotNet/marinadotnet.github.io/tree/main/public/static">"about: GitHub"</a></CodeValues>),</>,
                 <><Tab number={8} />LifeDemo = <CodeKeyWords>new </CodeKeyWords><ClassName>Uri</ClassName>(<CodeValues><a href="https://marinadotnet.github.io/static">"about: LifeDemo"</a></CodeValues>),</>,
                 <><Tab number={6} />&#125;;</>,
                 <br/>,
