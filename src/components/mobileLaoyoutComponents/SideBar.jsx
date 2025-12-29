@@ -3,7 +3,7 @@ import DarkThemeIcon from "../jointLayoutComponents/DarkThemeIcon";
 import {ThemeContext} from "../jointLayoutComponents/ThemeContext";
 import {useContext} from "react";
 
-import {Download, Github, Linkedin, Mail, Facebook} from "lucide-react";
+import {Download, Github, Linkedin, Mail, Facebook, BriefcaseBusiness} from "lucide-react";
 
 export default function SideBar(){
     const {theme, toggleTheme} = useContext(ThemeContext);
@@ -88,6 +88,17 @@ export default function SideBar(){
                 >
                     <Download className="icon" />
                     <span>PNG</span>
+                </button>
+            </div>
+
+            <div className="download-wrapper">
+                <button 
+                className="download-btn" 
+                title="Look at my simple/static Portfolio "
+                onClick={() => {window.open("https://marinadotnet.github.io/static", "_blank");}}
+                >
+                    <BriefcaseBusiness className="icon" />
+                    <span>Portfolio Static</span>
                 </button>
             </div>
 

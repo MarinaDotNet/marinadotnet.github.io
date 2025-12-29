@@ -112,6 +112,13 @@ export default function PageContentRightSide(){
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
+
+                <Accordion title="Visit My Portfolios" status={true}>
+                    <ul className="accordion-list-prop"> {/**v2-accordion-list */}
+                        <li><a href="https://marinadotnet.github.io/static" visit title="Look at my simple/static Portfolio">Static Portfolio</a></li>
+                        <li><hr className="line" /></li>
+                    </ul>
+                </Accordion>
             </div>
         {/**panel-sidebar-right end */}
         </div>
