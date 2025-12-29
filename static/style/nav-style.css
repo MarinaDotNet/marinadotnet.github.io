@@ -453,15 +453,19 @@ table td
 /*#region of buttons*/
 .download-button
 {
+  display: block;
   background-color:  #B88A13; /*#B88A13 #533E09*/
-  font-size: 2vw;
+  font-size: 0.9em;
   font-family: 'Comic Sans MS', 'Brush Script MT', cursive;
 
   color: #fff;
   border: 2px solid transparent;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px 16px;
   margin: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease;
 }
 .download-button:hover
 {
@@ -470,6 +474,14 @@ table td
 a.download-button
 {
   text-decoration: none;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
 }
 /*#endregion of buttons*/
 
@@ -622,6 +634,10 @@ a.download-button
   .main-accordion
   {
     width: 90%;
+  }
+
+  .action-buttons{
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 500px) {
