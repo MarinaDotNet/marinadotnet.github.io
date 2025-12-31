@@ -11,24 +11,31 @@ import Contact from "./pages/Contact";
 import Transition from "./pages/Transition";
 
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
+import {useState, useEffect} from "react";
 
 export default function MobileLayout(){
+    const [viewMode, setViewMode] = useState(() => localStorage.getItem("view") ?? "user");
+
+    useEffect(() => {
+        localStorage.setItem("view", viewMode);
+    }, [viewMode]);
+
     return(
         <Router>
             <div className="page-layout">
-                <DecorativeTopComponentMob />
+                <DecorativeTopComponentMob viewMode={viewMode} setViewMode={setViewMode}/>
                 <div className="page-content">
                     <SideBar />
                     <div className="middle-content">
                         <NavBar />
                         <div className="component-box">
                             <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/projects" element={<Projects />} />
-                                <Route path="/skills" element={<Skills />} />
-                                <Route path="/aboutme" element={<Aboutme />} />
-                                <Route path="/contact" element={<Contact />} />
-                                <Route path="#" element={<Home />} />
+                                <Route path="/" element={<Home viewMode={viewMode}/>} />
+                                <Route path="/projects" element={<Projects viewMode={viewMode}/>} />
+                                <Route path="/skills" element={<Skills viewMode={viewMode}/>} />
+                                <Route path="/aboutme" element={<Aboutme viewMode={viewMode}/>} />
+                                <Route path="/contact" element={<Contact viewMode={viewMode}/>} />
+                                <Route path="#" element={<Home viewMode={viewMode}/>} />
                                 <Route path="/transition" element={<Transition />} />
                             </Routes>
                         </div>

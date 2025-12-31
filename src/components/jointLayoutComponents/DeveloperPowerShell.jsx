@@ -314,6 +314,7 @@ export default function DeveloperPowerShell()
                 </button>
 
                 <select
+                    id="animationSpeed"
                     className={`animation-speed-select ${!isAnimationOn ? "hidden" : ""}`}
                     value={animationSpeed}
                     onChange={ e => setAnimationSpeed(Number(e.target.value))}

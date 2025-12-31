@@ -14,7 +14,7 @@ function NumberedCodeBloc({children}){
     let lineNumber = 0;
 
     return(
-        <div className="text-code reverse-hanging-indent">
+        <div className={"text-code reverse-hanging-indent"}>
             {childrenArray.map((child, index) => {
                 if(typeof child.type === "string" && child.type === "br"){
                     return <br key={index} />;
@@ -42,7 +42,7 @@ function NumberedCodeBloc({children}){
  */
 function CodeKeyWords({children}){
     return(
-        <span className="text-code-keywords">
+        <span className="text-code-keyword">
             {children}
         </span>
     );
@@ -73,6 +73,21 @@ function CodeValues({children}){
 function ClassName({children}){
     return(
         <span className="text-code-class">
+            {children}
+        </span>
+    );
+};
+
+/**
+ * Styles text to represent class names in code.
+ *
+ * @param {object} props
+ * @param {React.ReactNode} props.children - The class name(s) to highlight.
+ * @returns {JSX.Element}
+ */
+function CodeIdentifier({children}){
+    return(
+        <span className="text-code-identifier">
             {children}
         </span>
     );
@@ -129,4 +144,4 @@ function SingleComment({children}){
     );
 };
 
-export {NumberedCodeBloc, CodeKeyWords, CodeValues, ClassName, Tab, Comment, SingleComment};
+export {NumberedCodeBloc, CodeKeyWords, CodeValues, ClassName, Tab, Comment, SingleComment, CodeIdentifier};

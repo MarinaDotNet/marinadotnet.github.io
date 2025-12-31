@@ -747,7 +747,7 @@ button.btn-abc-check{
   width: 100svw;
   height: 5svh;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin: 0;
   background-color: var(--color-button-bg);
@@ -803,10 +803,10 @@ button.btn-abc-check{
   font-weight: var(--font-weight-for-code-text);
 }
 .text-code-rows{
-  padding: 0 2em 0 0.1em;
+  padding: 0 2ch 0 0.1ch;
   color: var(--color-text-muted);
 }
-.text-code-keywords{
+.text-code-keyword{
   color: var(--color-text-code-keywords);
 }
 .text-code-value,
@@ -819,6 +819,29 @@ button.btn-abc-check{
 .text-comment{
   color: var(--color-text-code-comment);
 }
+
+.code-list{
+  list-style: none;
+  display: inline;
+  text-indent: -1ch;
+  padding-inline-start: 0;
+}
+.code-list::before{
+  padding-right: 0;
+}
+.code-list li {
+  margin-bottom: 0.4rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.code-list li::before{
+  padding-right: 1ch;
+}
+
+.text-code-identifier{
+  color: var(--color-text-warning);
+}
 /* #endregion CodeTokens styles */
 
 /* 
@@ -829,9 +852,10 @@ button.btn-abc-check{
     creating a reverse hanging effect.
 */
 .reverse-hanging-indent {
+  --indent: 7ch;
   margin: 0;
-  padding-left: 8vw;   
-  text-indent: -8vw;    
+  padding-left: var(--indent);   
+  text-indent: calc(var(--indent) * -1);    
 }
 
 /* Decorative Header Stripe style for DecorativeTopPageLine.jsx element*/
@@ -845,7 +869,6 @@ button.btn-abc-check{
   align-items: center;
   justify-content: space-between;
 }
-
 /* #region Color Theme Icon */
 /* Color Theme Icon Styling */
 .color-theme-icon{
@@ -960,3 +983,75 @@ button.btn-abc-check{
 }
 
 /* #endregion Console styles */
+
+/* #region Human-View styles */
+.reverse-hanging-indent:has(.text-line){
+  --indent: 4ch;
+}
+
+.line-title{
+  font-family: var(--font-headers);
+  font-size: clamp(1.2rem, 2svw, 2rem);
+  color: var(--color-text-code-keywords);
+  margin-bottom: 0.5rem;
+}
+
+.line-list{
+  list-style: none;
+  display: inline;
+  text-indent: -4ch;
+  padding-inline-start: 0;
+}
+.line-list::before{
+  padding-right: 0;
+}
+.line-list li {
+  margin-bottom: 0.4rem;
+  padding-left: 5ch;
+  position: relative;
+}
+
+.line-list li::before{
+  content: "-";
+  color: var(--color-text-code-class);
+  padding-right: 1ch;
+}
+
+.intro{
+  color: var(--color-text-code-class);
+  font-family: var(--font-headers);
+}
+
+.hint-text{
+  font-size: 0.85rem;
+  color: var(--color-text-code-value);
+}
+.stripe-text{
+  font-size: clamp(0.7rem, 1.2svw, 1rem);
+}
+.view-mode-select {
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  font-size: clamp(0.6rem, 1svw, 0.7rem);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.view-mode-select:hover {
+  border-color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+}
+
+.view-mode-select:focus {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(79, 209, 255, 0.25);
+}
+.view-mode-select:focus option{
+  background-color: var(--color-background-select);
+}
+
+/* #endregion Human-View styles */
