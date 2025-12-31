@@ -1054,4 +1054,16 @@ button.btn-abc-check{
   background-color: var(--color-background-select);
 }
 
+.line-subtitle{
+  font-family: var(--font-headers);
+  font-size: clamp(0.9rem, 1.4svw, 1.4rem);
+  color: var(--color-accent-cyan);
+  margin-bottom: 0.5rem;
+}
+.line-link{
+  color: var(--color-accent-cyan);
+}
+.line-link:visited{
+  color: var(--color-text-code-comment);
+}
 /* #endregion Human-View styles */
