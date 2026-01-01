@@ -819,6 +819,9 @@ button.btn-abc-check{
 .text-comment{
   color: var(--color-text-code-comment);
 }
+.text-comment span{
+  margin-left: -3ch;
+}
 
 .code-list{
   list-style: none;

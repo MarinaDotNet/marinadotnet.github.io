@@ -118,12 +118,21 @@ function Tab({number}){
  * @returns {JSX.Element}
  */
 function Comment({children}){
+    const text = typeof children === "string"
+        ? children
+        : Array.isArray(children)
+        ? children.join("")
+        : "";
+        
+    const lines = text.split(/\n|,/).map(line => line.trim()).filter(Boolean);
     return(
-        <>
         <span className="text-comment">
-            /* {children} */
+            <span>&nbsp;&nbsp;&nbsp;/// &lt;summary&gt;<br/></span>
+            {lines.map((line, index) => (
+                <span key={index}>/// {line}<br/></span>
+            ))}
+            <span>/// &lt;/summary&gt;</span>
         </span>
-        </>
     );
 };
 
