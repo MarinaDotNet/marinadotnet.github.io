@@ -1,5 +1,4 @@
 import {NumberedCodeBloc, CodeKeyWords, CodeValues, ClassName, Tab, SingleComment, CodeIdentifier} from "../jointLayoutComponents/CodeTokens";
-import ScrollToHash from "../ScrolltoHash";
 
 export default function Projects({viewMode}){
     if(viewMode === "developer"){
