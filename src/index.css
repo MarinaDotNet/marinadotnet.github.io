@@ -822,6 +822,9 @@ button.btn-abc-check{
 .text-comment span{
   margin-left: -3ch;
 }
+a.link-in-comment{
+  color: var(--color-text-code-comment);
+}
 
 .code-list{
   list-style: none;
