@@ -19,7 +19,7 @@ export default function SideBar(){
                 ? <LightThemeIcon />
                 : <DarkThemeIcon />}
             </a>
-            
+            <div className="full-line"></div>
             <div className="download-wrapper">
                 <button 
                 className="download-btn" 
@@ -43,10 +43,22 @@ export default function SideBar(){
             <div className="download-wrapper">
                 <button 
                 className="download-btn" 
-                title="Send me an email"
+                title="Send email on Outlook"
                 onClick={() => {window.location.href="mailto: msichova@outlook.com";}}
                 >
                     <Mail className="icon" />
+                    <span>Outlook</span>
+                </button>
+            </div>
+
+            <div className="download-wrapper">
+                <button 
+                className="download-btn" 
+                title="Send email on Gmail"
+                onClick={() => {window.location.href="mailto: msichova.net@gmail.com";}}
+                >
+                    <Mail className="icon" />
+                    <span>Gmail</span>
                 </button>
             </div>
 
@@ -63,7 +75,7 @@ export default function SideBar(){
             <div className="download-wrapper">
                 <button 
                 className="download-btn" 
-                onClick={() => {window.open("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.pdf", "_blank");}}
+                onClick={() => {window.open("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.pdf", "_blank");}}
                 >
                     <Download className="icon" />
                     <span>PDF</span>
@@ -73,7 +85,7 @@ export default function SideBar(){
             <div className="download-wrapper">
                 <button 
                 className="download-btn" 
-                onClick={() => {window.open("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.docx", "_blank", "noopener,noreferrer");}}
+                onClick={() => {window.open("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.docx", "_blank", "noopener,noreferrer");}}
                 >
                     <Download className="icon" />
                     <span>DOC</span>
@@ -84,13 +96,14 @@ export default function SideBar(){
                 <button 
                 className="download-btn" 
                 title="Download PNG resume"
-                onClick={()  => {window.open("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.png", "_blank", "noopener,noreferrer");}}
+                onClick={()  => {window.open("https://github.com/MarinaDotNet/marinadotnet.github.io/blob/main/public/static/files/cv.png", "_blank", "noopener,noreferrer");}}
                 >
                     <Download className="icon" />
                     <span>PNG</span>
                 </button>
             </div>
 
+            <div className="full-line"></div>
             <div className="download-wrapper">
                 <button 
                 className="download-btn" 
