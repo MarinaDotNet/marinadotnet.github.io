@@ -90,32 +90,33 @@ export default function PageContentRightSide(){
             <div>
                 <Accordion title="Social Media Links" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
-                        <li><a href="https://github.com/MarinaDotNet" title="Visit my GitHub page">Visit me at GitHub</a></li>
+                        <li><a href="https://github.com/MarinaDotNet" title="Visit my GitHub page" target="_blank">Visit me at GitHub</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" title="Visit my LinkedIn page">Visit me at LinkedIn</a></li>
+                        <li><a href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" title="Visit my LinkedIn page" target="_blank">Visit me at LinkedIn</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="mailto:msichova@outlook.com" title="Send to me email">Contact me via Email</a></li>
+                        <li><a href="mailto:msichova@outlook.com" title="Send email on outlook" target="_blank">Contact me via Outlook</a></li>
+                        <li><a href="mailto:msichova.net@gmail.com" title="Send email on gmail" target="_blank">Contact me via Gmail</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://wa.me/+61433881789" title="Contact Me via WhatsUp">Contact me at WhatsUp</a></li>
+                        <li><a href="https://wa.me/+61433881789" title="Contact Me via WhatsUp" target="_blank">Contact me at WhatsUp</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://www.facebook.com/msichova/" title="Contact to me via Facebook">Contact me at Facebook</a></li>
+                        <li><a href="https://www.facebook.com/msichova/" title="Contact to me via Facebook" target="_blank">Contact me at Facebook</a></li>
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
                 <Accordion title="Download My Resume" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
-                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.pdf" download target="_blank" title="Download CV in PDF">In PDF format</a></li>
+                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.pdf" download target="_blank" title="Download CV in PDF">In PDF format</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.docx" download title="Download CV in DOC">In DOC format</a></li>
+                        <li><a title="Download CV in DOC format" href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.docx" download>In DOC format</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.png" download target="_blank" title="Download CV in PNG"> In PNG format</a></li>
+                        <li><a href="https://github.com/MarinaDotNet/marinadotnet.github.io/blob/main/public/static/files/cv.png" download target="_blank" title="Download CV in PNG"> In PNG format</a></li>
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
 
                 <Accordion title="Visit My Portfolios" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
-                        <li><a href="https://marinadotnet.github.io/static" title="Look at my simple/static Portfolio">Static Portfolio</a></li>
+                        <li><a href="https://marinadotnet.github.io/static" title="Look at my simple/static Portfolio" target="_blank">Static Portfolio</a></li>
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>
