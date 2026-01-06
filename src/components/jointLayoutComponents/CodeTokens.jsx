@@ -118,13 +118,14 @@ function Tab({number}){
  * @returns {JSX.Element}
  */
 function Comment({children}){
-    const text = typeof children === "string"
-        ? children
-        : Array.isArray(children)
-        ? children.join("")
-        : "";
-        
-    const lines = text.split(/\n|,/).map(line => line.trim()).filter(Boolean);
+    const lines = Children.toArray(children)
+        .flatMap(child => {
+            if(typeof child === "string"){
+                return child.split(/\n|,/).map(line => line).filter(Boolean);
+            }
+            return child;
+        });
+
     return(
         <span className="text-comment">
             <span>&nbsp;&nbsp;&nbsp;/// &lt;summary&gt;<br/></span>
@@ -134,6 +135,7 @@ function Comment({children}){
             <span>/// &lt;/summary&gt;</span>
         </span>
     );
+
 };
 
 /**
