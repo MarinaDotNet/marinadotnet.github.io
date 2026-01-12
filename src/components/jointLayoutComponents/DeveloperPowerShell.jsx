@@ -1,6 +1,6 @@
 import {useState, useContext, useEffect, useRef} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import {ThemeContext} from "./ThemeContext";
+import {ThemeContext} from "../ThemeContext";
 import ConsoleSimulator from "../jointLayoutComponents/ConsoleSimulator";
 
 /**
