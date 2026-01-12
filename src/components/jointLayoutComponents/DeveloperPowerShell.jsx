@@ -20,8 +20,18 @@ import ConsoleSimulator from "../jointLayoutComponents/ConsoleSimulator";
  *
  * @returns {JSX.Element}
  */
-export default function DeveloperPowerShell()
+export default function DeveloperPowerShell({ keepInputFocus = false })
 {
+    const inputRef = useRef(null);
+
+    const focusInput = () => {
+        inputRef.current?.focus();
+    };
+
+    const blurInput = () => {
+        inputRef.current?.blur();
+    }
+
     /**
      * Controls whether console command animation is enabled.
      *
@@ -74,6 +84,12 @@ export default function DeveloperPowerShell()
     const [userInput, setUserInput] = useState("");
     // Active command, what user just entered
     const [activeCommand, setActiveCommand] = useState(null);
+
+    useEffect(() => {
+        if(!activeCommand && keepInputFocus){
+            focusInput();
+        }
+    }, [activeCommand, keepInputFocus]);
 
     // Reference to scroll the console to the bottom on new output
     const consoleRef = useRef(null);
@@ -239,6 +255,10 @@ export default function DeveloperPowerShell()
         }
         handleCommand(userInput.trim());
         setUserInput("");
+
+        if(!keepInputFocus){
+            blurInput();
+        }
     };
 
     let location = useLocation();
@@ -355,6 +375,7 @@ export default function DeveloperPowerShell()
             <form onSubmit={handleSubmit} className="console-input-form" name="consoleForm">
                 <span name="consolePrefics" className="console-prefics">{"PS MarinaDotNet.github.io/#" + path + ">"}</span>
                 <input
+                ref={inputRef}
                 name="consoleInput"
                 className="console-input"
                 type="text"
@@ -362,7 +383,7 @@ export default function DeveloperPowerShell()
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 disabled={!!activeCommand}
-                autoFocus />
+                />
             </form>
         </div>
     {/* footer div end */}

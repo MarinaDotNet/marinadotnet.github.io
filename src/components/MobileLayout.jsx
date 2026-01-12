@@ -39,7 +39,7 @@ export default function MobileLayout(){
                                 <Route path="/transition" element={<Transition />} />
                             </Routes>
                         </div>
-                            <DeveloperPowerShell />
+                            <DeveloperPowerShell keepInputFocus={false}/>
                     </div>
                 </div>            
             </div>

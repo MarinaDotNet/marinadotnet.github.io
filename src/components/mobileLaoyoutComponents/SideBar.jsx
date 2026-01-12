@@ -1,6 +1,6 @@
 import LightThemeIcon from "../jointLayoutComponents/LightThemeIcon";
 import DarkThemeIcon from "../jointLayoutComponents/DarkThemeIcon";
-import {ThemeContext} from "../jointLayoutComponents/ThemeContext";
+import {ThemeContext} from "../ThemeContext";
 import {useContext} from "react";
 
 import {Download, Github, Linkedin, Mail, Facebook, BriefcaseBusiness} from "lucide-react";

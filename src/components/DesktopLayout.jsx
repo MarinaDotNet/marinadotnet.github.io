@@ -49,7 +49,7 @@ export default function DesktopLayout(){
                     </div>
                     <PageContentRightSide />
                 </div>
-                <DeveloperPowerShell />
+                <DeveloperPowerShell keepInputFocus/>
             </div>        
         </Router>
     );
