@@ -13,23 +13,12 @@ import Contact from "./pages/Contact";
 import Transition from "./pages/Transition";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import {useState, useEffect} from "react";
 
-export default function DesktopLayout(){
-    const [viewMode, setViewMode] = useState(() => localStorage.getItem("view") ?? "user");
-
-    useEffect(() => 
-    {
-        localStorage.setItem("view", viewMode);
-    }, [viewMode]);
-
+export default function DesktopLayout({ viewMode, setViewMode }){
     return(
         <Router>
-
-            <div className="page-layout">
-                
+            <div className="page-layout">     
                 <DecorativeTopComponent />
-
                 <div className="main-content">
                     <PageContentLeftSide />
                     <div className="middle-content">
