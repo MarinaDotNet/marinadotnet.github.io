@@ -109,6 +109,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
     const handleCommand = (cmd) => 
     {
         const cmdToLower = cmd.toLowerCase();
+        setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>]);
         switch(cmdToLower)
         {
              case "help": 
@@ -165,9 +166,6 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
                         "c", "contact", "contact.cs", "/contact.cs",
                         "theme", "switch-theme", "th"
                     ];
-                
-
-                setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>]);
 
                 if(navigatableCommands.includes(cmdToLower))
                 {
