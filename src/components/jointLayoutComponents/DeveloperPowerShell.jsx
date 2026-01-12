@@ -105,6 +105,20 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
     // Access toggleTheme from context
     const {toggleTheme} = useContext(ThemeContext);
 
+    function downloadFile(url, filename){
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+
+        //fallback: if browser desides to open the file
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     // Processes a command typed by the user
     const handleCommand = (cmd) => 
     {
@@ -127,7 +141,10 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
                             press <span className="cmd"> anim off</span> or <span className="cmd"> anim on</span> to turn on/off the animation,<br/>
                             press <span className="cmd"> anim speed fast</span> to switch to Fast animation speed,<br/>
                             press <span className="cmd"> anim speed normal</span> to switch to Normal animation speed,<br/>
-                            press <span className="cmd"> anim speed slow</span> to switch to Slow animation speed
+                            press <span className="cmd"> anim speed slow</span> to switch to Slow animation speed,<br/>
+                            press <span className="cmd"> .pdf</span> to download my CV in PDF format,<br/>
+                            press <span className="cmd"> .doc</span> to download my CV in DOC format,<br/>
+                            press <span className="cmd"> .png</span> to download my CV in PNG format
                         </span>
                     );
                 setLines(prev => [...prev, <span className="cmd">{">" + cmd}</span>, helpText]);
@@ -154,6 +171,21 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
                 return;
             case "anim speed slow":
                 setAnimationSpeed(800);
+                return;
+            case ".pdf":
+                downloadFile("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.pdf",
+                    "Marina_Sichova_CV.pdf"
+                );
+                return;
+            case ".doc":
+                downloadFile("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.docx",
+                    "Marina_Shichova_DOC.docx"
+                );
+                return;
+            case ".png":
+                downloadFile("https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/public/static/files/cv.png",
+                    "Marina_Sichova_PNG.png"
+                );
                 return;
 
             default:
