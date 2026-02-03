@@ -295,7 +295,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
     const path = location.pathname === "/" ? "/home" : location.pathname;
 
     return(
-    <div className="footer">
+    <div className="footer" data-tour="site-powershel">
         {/* PowerShell header with title and window control icons */}
         <div className="developer-powershell-header">
                 <span className="console-window-header">Developer Powershell</span>
@@ -357,6 +357,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
 
                 <div className="animation-controls">
                     <button
+                    data-tour="site-animation"
                 className="animation-toggle-button"
                 title="Toggle console animation"
                 onClick={() => toggleAnimation()}>
@@ -365,6 +366,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
 
                 <select
                     id="animationSpeed"
+                    data-tour="site-animation-speed"
                     className={`animation-speed-select ${!isAnimationOn ? "hidden" : ""}`}
                     value={animationSpeed}
                     onChange={ e => setAnimationSpeed(Number(e.target.value))}
@@ -405,6 +407,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
             <form onSubmit={handleSubmit} className="console-input-form" name="consoleForm">
                 <span name="consolePrefics" className="console-prefics">{"PS MarinaDotNet.github.io/#" + path + ">"}</span>
                 <input
+                
                 ref={inputRef}
                 name="consoleInput"
                 className="console-input"

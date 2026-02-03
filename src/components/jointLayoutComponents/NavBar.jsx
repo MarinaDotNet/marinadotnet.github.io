@@ -8,7 +8,7 @@ import ColapsedNavBar from '../mobileLaoyoutComponents/ColapsedNavBar';
  * A responsive navigation bar that supports active route highlighting
  * and collapses into mobile layout when views on smaller viewports
 */
-export default function NavBar(){
+export default function NavBar({isMobile}){
     //Get current URL to determine which navigation button is active
     const { pathname } = useLocation();
     const page = pathname === "/" ? "home" : pathname.replace("/", "");
@@ -23,7 +23,7 @@ export default function NavBar(){
     const closeMenu = () => setIsOpen(false);
 
     return(
-        <div className="nav-bar">
+        <div className="nav-bar" data-tour="site-navbar">
 
             {/**Navigation button container; expands when isOpen = true */}
             <div 
@@ -48,8 +48,7 @@ export default function NavBar(){
             </div>
 
             {/**Humburger icon for toggling the mobile navigation bar */}
-            <ColapsedNavBar toggle={toggleMenu}/>
-            
+            <ColapsedNavBar toggle={toggleMenu} isMobile={isMobile}/>
         </div>
     );
 }

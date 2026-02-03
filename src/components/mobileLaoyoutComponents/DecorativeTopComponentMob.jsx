@@ -1,3 +1,5 @@
+import {createSiteTour} from "../SiteTour";
+
 /**
  * DecorativeTopComponentMob
  *
@@ -15,9 +17,16 @@
  * @returns {JSX.Element} A top-of-page decorative mobile header with a view mode selector.
  */
 export default function DecorativeTopComponentMob({viewMode, setViewMode}){
+    const tour = createSiteTour();
+    
+        const startTour = () => {
+            tour.drive();
+        };
+
     return(
         <div className="decorative-top-mobile">
                 <select
+                    data-tour="site-view-mode"
                     id="view"
                     className="view-mode-select"
                     value={viewMode}
@@ -27,6 +36,7 @@ export default function DecorativeTopComponentMob({viewMode, setViewMode}){
                     <option value="user">User View</option>
                 </select>
             <span className="text-primary">MarinaDotNet.Portfolio</span>
+            <button className="site-tour-button" data-tour="site-tour" title="Press to start Site Tour" type="button" onClick={startTour}> ? Help </button>
         </div>
     );
 }

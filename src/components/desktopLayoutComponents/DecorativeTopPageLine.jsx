@@ -31,6 +31,7 @@ export default function DecorativeTopPageLine({viewMode, setViewMode}){
     return(
         <div className="header-stripe">
                 <select
+                    data-tour="site-view-mode"
                     id="view"
                     className="view-mode-select"
                     value={viewMode}
@@ -42,6 +43,7 @@ export default function DecorativeTopPageLine({viewMode, setViewMode}){
                 <span className="text-primary stripe-text">MarinaDotNet.Portfolio</span>
 
                 <a id={theme}
+                data-tour="site-theme-switch"
                 type="button"
                 onClick={toggleTheme}
                 className="color-theme-icon"

@@ -3,7 +3,7 @@ import MobileLayout from "../src/components/MobileLayout";
 import DesktopLayout from "../src/components/DesktopLayout";
 import { ThemeProvider } from "./components/jointLayoutComponents/ThemeContext";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { useViewModeGesture } from "./components/jointLayoutComponents/useViewModeGesture";
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
   const { gestureHandlers } = useViewModeGesture({
     getViewMode: () => viewMode,
     setViewMode,
-    holdMs: 350,});
+    holdMs: 350,});  
 
   return (
     <ThemeProvider>

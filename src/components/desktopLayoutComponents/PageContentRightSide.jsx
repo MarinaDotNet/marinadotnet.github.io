@@ -51,7 +51,7 @@ export default function PageContentRightSide(){
     };
 
     return(
-        <div className="panel-sidebar-right">
+        <div className="panel-sidebar-right" data-tour="site-important-links">
             <div className="sidebar-object-header"> {/**properties-windows-header */}
                 <span className="text-title-sm">Properties</span>
                 {/**Dotted triple horizontal line*/}

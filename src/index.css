@@ -629,6 +629,13 @@ button.download-btn{
   display: flex;
   gap: 0 2px;
   height: 2.5svh;
+  width: 99svw;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.icon-button-row-left-side{
+  display: flex;
+  flex-direction: row;
 }
 
 .divider-vertical {
@@ -747,7 +754,7 @@ button.btn-abc-check{
   width: 100svw;
   height: 5svh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
   background-color: var(--color-button-bg);
@@ -1073,3 +1080,4 @@ a.link-in-comment{
   color: var(--color-text-code-comment);
 }
 /* #endregion Human-View styles */
+
