@@ -29,6 +29,9 @@
   --color-text-primary: #E6FFFF;
   --color-text-secondary: #E6E6E6;
 
+  --logo-gradient-start: #37D8E8;
+  --logo-gradient-end: #C58BFF;
+
   --color-nav-btn-inactive: #19194D;
   --color-nav-btn-active: #1F1F60;
 
@@ -66,6 +69,8 @@ body.light-theme{
   --color-border: #7878D3;
   --color-text-primary: #0F0F2E;
   --color-text-secondary: #1A1A1A;
+  --logo-gradient-start: #0077B6; 
+  --logo-gradient-end: #7C3AED;
 
   --color-nav-btn-inactive: #9F9FE0;
   --color-nav-btn-active: #8B8BDA;
