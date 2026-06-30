@@ -1,4 +1,5 @@
 import {createSiteTour} from "../SiteTour";
+import Logo from "../../assets/logo_smallest.svg?react";
 
 /**
  * 
@@ -18,7 +19,7 @@ export default function DecorativeTopComponents(){
         <div className="vs-toolbar-wrapper">
             
             <div className="vs-toolbar-line">
-                <span className="text-bold-sm">MDN</span>
+                <Logo width={16} height={16}/>
                 <button type="button" className="btn-muted">File</button>
                 <button type="button" className="btn-muted">Edit</button>
                 <button type="button" className="btn-muted">View</button>
@@ -37,7 +38,7 @@ export default function DecorativeTopComponents(){
                 style={{marginLeft: "5px"}}
                 >Search ▾</button>
 
-                <span className="text-bold-sm">MarinaDotNet.Portfolio</span>
+                <span className="text-bold-sm">NetByMarina.Portfolio</span>
 
                 <button 
                 type="button" 
