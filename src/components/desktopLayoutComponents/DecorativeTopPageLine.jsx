@@ -2,6 +2,7 @@ import DarkThemeIcon from "../jointLayoutComponents/DarkThemeIcon";
 import LightThemeIcon from "../jointLayoutComponents/LightThemeIcon";
 import {ThemeContext} from "../ThemeContext";
 import {useContext} from "react";
+import Logo from "../../assets/logo_sm.svg?react";
 
 /**
  * DecorativeTopPageLine
@@ -40,7 +41,11 @@ export default function DecorativeTopPageLine({viewMode, setViewMode}){
                     <option value="developer">Developer View</option>
                     <option value="user">User View</option>
                 </select>
-                <span className="text-primary stripe-text">MarinaDotNet.Portfolio</span>
+
+                <div className="logo-header">
+                    <Logo className="logo-in-header"/>
+                    <span className="text-primary stripe-text">NetByMarina.Portfolio</span>
+                </div>
 
                 <a id={theme}
                 data-tour="site-theme-switch"

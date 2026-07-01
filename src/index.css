@@ -880,12 +880,24 @@ a.link-in-comment{
 .header-stripe{
   background-color: var(--color-frame);
   height: fit-content; 
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   border-top: 2px solid var(--color-highlight-primary);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.logo-header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.logo-in-header{
+  height: 7svh;
+  width: auto;
+  padding: 0;
+  margin: 0;
 }
 /* #region Color Theme Icon */
 /* Color Theme Icon Styling */
