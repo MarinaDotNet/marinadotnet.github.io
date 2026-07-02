@@ -74,7 +74,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
     // Default boot message lines displayed in the PowerShell
     const defaultLines = [
         "**********************************************",
-        "MarinaDotNet Developer 2025 Portfolio v2.1",
+        "NetByMarina Developer 2025 Portfolio v2.1",
         "** Copyright © 2025 Marina Sichova",
         "**********************************************",
         <span>Type '<span className="cmd">help</span>' for commands.</span>];
@@ -405,7 +405,7 @@ export default function DeveloperPowerShell({ keepInputFocus = false })
             )}
 
             <form onSubmit={handleSubmit} className="console-input-form" name="consoleForm">
-                <span name="consolePrefics" className="console-prefics">{"PS MarinaDotNet.github.io/#" + path + ">"}</span>
+                <span name="consolePrefics" className="console-prefics">{"PS NetByMarina.dev/#" + path + ">"}</span>
                 <input
                 
                 ref={inputRef}
