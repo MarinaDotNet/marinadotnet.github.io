@@ -97,7 +97,7 @@ export default function PageContentRightSide(){
                         <li><a href="mailto:msichova@outlook.com" title="Send email on outlook" target="_blank">Contact me via Outlook</a></li>
                         <li><a href="mailto:msichova.net@gmail.com" title="Send email on gmail" target="_blank">Contact me via Gmail</a></li>
                         <li><hr className="line" /></li>
-                        <li><a href="https://wa.me/+61433881789" title="Contact Me via WhatsUp" target="_blank">Contact me at WhatsUp</a></li>
+                        <li><a href="https://wa.me/+61433881789" title="Contact Me via WhatsUp" target="_blank">Contact me at WhatsUp @NetByMarina</a></li>
                         <li><hr className="line" /></li>
                         <li><a href="https://www.facebook.com/msichova/" title="Contact to me via Facebook" target="_blank">Contact me at Facebook</a></li>
                         <li><hr className="line" /></li>
