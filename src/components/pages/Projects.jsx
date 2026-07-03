@@ -60,7 +60,7 @@ export default function Projects({viewMode}){
                 </>,
                 <><Tab number={3}/>Demo = 
                     <CodeKeyWords> new</CodeKeyWords> <ClassName>Uri</ClassName>(<CodeValues>
-                    <a href="https://marinadotnet.github.io/static/" title="Live Static Portfolio at GitHub">
+                    <a href="https://netbymarina.dev/static/" title="Live Static Portfolio at GitHub">
                         "about:Live"
                     </a></CodeValues>)
                 </>,
@@ -79,7 +79,7 @@ export default function Projects({viewMode}){
                     "about:GitHub"
                     </a></CodeValues>),</>,
                 <><Tab number={3}/>Demo = 
-                    <CodeKeyWords> new</CodeKeyWords> <ClassName>Uri</ClassName>(<CodeValues><a href="https://marinadotnet.github.io/" title="Live React App at GitHub">
+                    <CodeKeyWords> new</CodeKeyWords> <ClassName>Uri</ClassName>(<CodeValues><a href="https://netbymarina.dev/" title="Live React App at GitHub">
                     "about:Live"
                     </a></CodeValues>)
                 </>,
@@ -168,7 +168,7 @@ export default function Projects({viewMode}){
             <li><b className="text-line">Tech:</b><br/>
             HTML, CSS, JavaScript</li>
             <li><b className="text-line">GitHub:</b> <a className="line-link" href="https://github.com/MarinaDotNet/marinadotnet.github.io/tree/main/public/static" title="GitHub repository of Static Portfolio">GitHub repository</a></li> 
-            <li><b className="text-line">Demo:</b> <a className="line-link" href="https://marinadotnet.github.io/static/" title="Live Static Portfolio at GitHub">Live Demo at GitHub</a></li> 
+            <li><b className="text-line">Demo:</b> <a className="line-link" href="https://netbymarina.dev/static/" title="Live Static Portfolio at GitHub">Live Demo at GitHub</a></li> 
         </ul>,
         <ul className="text-line line-list">
             <li><b className="text-line">React Portfolio App</b></li>
@@ -177,7 +177,7 @@ export default function Projects({viewMode}){
             <li><b className="text-line">Tech:</b><br/>
             React, Vite, JavaScript</li>
             <li><b className="text-line">GitHub:</b> <a className="line-link" href="https://github.com/MarinaDotNet/marinadotnet.github.io" title="GitHub repository of React App">GitHub repository</a></li> 
-            <li><b className="text-line">Demo:</b> <a className="line-link" href="https://marinadotnet.github.io/" title="Live React App at GitHub">Live Demo at GitHub</a></li> 
+            <li><b className="text-line">Demo:</b> <a className="line-link" href="https://netbymarina.dev/" title="Live React App at GitHub">Live Demo at GitHub</a></li> 
         </ul>,
         <br/>,
 
