@@ -1,4 +1,5 @@
 import {createSiteTour} from "../SiteTour";
+import Logo from "../../assets/logo_sm.svg?react";
 
 /**
  * DecorativeTopComponentMob
@@ -35,7 +36,10 @@ export default function DecorativeTopComponentMob({viewMode, setViewMode}){
                     <option value="developer">Developer View</option>
                     <option value="user">User View</option>
                 </select>
-            <span className="text-primary">MarinaDotNet.Portfolio</span>
+            <div className="logo-header">
+                <Logo className="logo-in-header"/>
+                <span className="text-primary">NetByMarina.Portfolio</span>
+            </div>
             <button className="site-tour-button" data-tour="site-tour" title="Press to start Site Tour" type="button" onClick={startTour}> ? Help </button>
         </div>
     );
