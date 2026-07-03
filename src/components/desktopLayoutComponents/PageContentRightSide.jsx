@@ -116,7 +116,7 @@ export default function PageContentRightSide(){
 
                 <Accordion title="Visit My Portfolios" status={true}>
                     <ul className="accordion-list-prop"> {/**v2-accordion-list */}
-                        <li><a href="https://marinadotnet.github.io/static" title="Look at my simple/static Portfolio" target="_blank">Static Portfolio</a></li>
+                        <li><a href="https://netbymarina.dev/static" title="Look at my simple/static Portfolio" target="_blank">Static Portfolio</a></li>
                         <li><hr className="line" /></li>
                     </ul>
                 </Accordion>

@@ -11,7 +11,7 @@ export default function Skills({viewMode}){
             <><CodeKeyWords>using</CodeKeyWords> Skills.CurrentlyLearning;</>,
             <><CodeKeyWords>using</CodeKeyWords> Skills.Testing;</>,
             <br/>,
-            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>MarinaDotNet</CodeIdentifier>;</>,
+            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>NetByMarina</CodeIdentifier>;</>,
             <br/>,
             <><SingleComment>Developer Skill Set</SingleComment></>,
             <><CodeKeyWords>public static class</CodeKeyWords> <CodeIdentifier>Skills</CodeIdentifier></>,

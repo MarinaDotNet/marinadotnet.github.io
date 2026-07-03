@@ -10,13 +10,13 @@ export default function Contact ({viewMode}){
             <><CodeKeyWords>using</CodeKeyWords> OpenPorts._443;</>,
             <><CodeKeyWords>using</CodeKeyWords> Networking.Protocols;</>,
             <br/>,
-            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>MarinaDotNet</CodeIdentifier>;</>,
+            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>NetByMarina</CodeIdentifier>;</>,
             <br />,
             <Comment>
                 My contact info:,
                 Email: <a className="link-in-comment" href="mailto:msichova@outlook.com" title="Send email to me at outlook">msichova@outlook.com</a>,
                 &nbsp;,
-                WhatsApp: <a className="link-in-comment" href="https://wa.me/+61433881789" target="_blank" title="WhatsApp me">Marina Sichova</a>,
+                WhatsApp: <a className="link-in-comment" href="https://wa.me/+61433881789" target="_blank" title="WhatsApp me">@NetByMarina</a>,
                 &nbsp;,
                 GitHub: <a className="link-in-comment" href="https://github.com/MarinaDotNet" target="_blank" title="Visit at GitHub">MarinaDotNet"</a>,
                 For more contact info/variants please look below.
@@ -37,13 +37,13 @@ export default function Contact ({viewMode}){
             <br/>,
             <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"LinkedIn : <a title="Visit at LinkedIn" href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au" target="_blank">Marina Sichova"</a></CodeValues>);</>,
             <br/>,
-            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"WhatsApp : <a title="WhatsApp me" href="https://wa.me/+61433881789" target="_blank">Marina Sichova"</a></CodeValues>);</>,
+            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"WhatsApp : <a title="WhatsApp me" href="https://wa.me/+61433881789" target="_blank">@NetByMarina"</a></CodeValues>);</>,
             <br/>,
             <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"Facebook : <a title="Visit at Facebook" href="https://www.facebook.com/msichova/" target="_blank">Marina Sichova"</a></CodeValues>);</>,
             <br/>,
-            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"Static Portfolio : <a title="Look at my Static Portfolio" href="https://marinadotnet.github.io/static" target="_blank">MarinaDotNet.github.io/static"</a></CodeValues>);</>,
+            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"Static Portfolio : <a title="Look at my Static Portfolio" href="https://netbymarina.dev/static" target="_blank">NetByMarina.dev/static"</a></CodeValues>);</>,
             <br/>,
-            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"React-Vite Portfolio : <a title="Look at my React-Vite Portfolio" href="https://marinadotnet.github.io" target="_blank">MarinaDotNet.github.io"</a></CodeValues>);</>,
+            <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"React-Vite Portfolio : <a title="Look at my React-Vite Portfolio" href="https://netbymarina.dev" target="_blank">NetByMarina.dev"</a></CodeValues>);</>,
             <br />,
             <><Tab number={2} /><ClassName>Console</ClassName>.WriteLine(<CodeValues>"----------"</CodeValues>);</>,
             <br/>,
@@ -85,7 +85,7 @@ export default function Contact ({viewMode}){
             <br/>,
             <ul className="text-line line-list">
                 <span className="line-subtitle">WhatsApp</span>
-                <li><a className="line-link" href="https://wa.me/+61433881789" title="WhatsApp me" target="_blank">Marina Sichova</a></li>
+                <li><a className="line-link" href="https://wa.me/+61433881789" title="WhatsApp me" target="_blank">@NetByMarina</a></li>
             </ul>,
             <br/>,
             <ul className="text-line line-list">
@@ -95,12 +95,12 @@ export default function Contact ({viewMode}){
             <br/>,
             <ul className="text-line line-list">
                 <span className="line-subtitle">Static Portfolio</span>
-                <li><a className="line-link" href="https://marinadotnet.github.io/static/" title="Look at my Static Portfolio" target="_blank">https://marinadotent.github.io/static/</a></li>
+                <li><a className="line-link" href="https://netbymarina.dev/static/" title="Look at my Static Portfolio" target="_blank">https://netbymarina.dev/static/</a></li>
             </ul>,
             <br/>,
             <ul className="text-line line-list">
                 <span className="line-subtitle">React-Vite Portfolio</span>
-                <li><a className="line-link" href="https://marinadotnet.github.io/" title="Look at my React-Vite Portfolio" target="_blank">https://marinadotnet.github.io/</a></li>
+                <li><a className="line-link" href="https://netbymarina.dev/" title="Look at my React-Vite Portfolio" target="_blank">https://netbymarina.dev/</a></li>
             </ul>,
             <br/>,
             <span className="text-line">---------------</span>,

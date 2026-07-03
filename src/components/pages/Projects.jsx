@@ -10,7 +10,7 @@ export default function Projects({viewMode}){
                 <><CodeKeyWords>using</CodeKeyWords> Projects.FullStack;</>,
                 <br/>,
                 <SingleComment> Tip: switch between views to explore different perspectives.</SingleComment>,
-                <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>MarinaDotNet</CodeIdentifier>;</>,
+                <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>NetByMarina</CodeIdentifier>;</>,
                 <br/>,
                 <><CodeKeyWords>public static class </CodeKeyWords><CodeIdentifier>Project</CodeIdentifier></>,
                 <>&#123;</>,

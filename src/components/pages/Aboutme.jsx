@@ -9,7 +9,7 @@ export default function AboutMe({viewMode}){
             <><CodeKeyWords>using</CodeKeyWords> Story.Context;</>,
             <><CodeKeyWords>using</CodeKeyWords> Etc.*;</>,
             <br/>,
-            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>MarinaDotNet</CodeIdentifier>;</>,
+            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>NetByMarina</CodeIdentifier>;</>,
             <br/>,
             <Comment >
                 Hi, I'm Marina Sichova - a .NET Developer passionate,
@@ -66,7 +66,7 @@ export default function AboutMe({viewMode}){
             <br/>,
             <><Tab number={1}/><CodeKeyWords>private</CodeKeyWords> <ClassName>Uri</ClassName> DownloadMyResume =&gt; <CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.pdf" className="in-active-link">CV in PDF</a>"</CodeValues>);</>,
             <br/>,
-            <><Tab number={1}/><CodeKeyWords>private</CodeKeyWords> <ClassName>Uri</ClassName> MyStaticPortfolio =&gt; <CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://marinadotnet.github.io/static">Static Portfolio</a>"</CodeValues>);</>,
+            <><Tab number={1}/><CodeKeyWords>private</CodeKeyWords> <ClassName>Uri</ClassName> MyStaticPortfolio =&gt; <CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://netbymarina.dev/static">Static Portfolio</a>"</CodeValues>);</>,
             <br/>,
             <><Tab number={1}/><CodeKeyWords>private</CodeKeyWords> <ClassName>Uri</ClassName>[] Contact =&gt;</>,
             <br/>,
@@ -74,7 +74,7 @@ export default function AboutMe({viewMode}){
             <><Tab number={2}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="mailto:msichova@outlook.com">about:Email</a>"</CodeValues>),</>,
             <><Tab number={2}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://github.com/MarinaDotNet">about:GitHub</a>"</CodeValues>),</>,
             <><Tab number={2}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au">about:LinkedIn</a>"</CodeValues>),</>,
-            <><Tab number={2}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://wa.me/+61433881789">about:WhatsApp</a>"</CodeValues>),</>,
+            <><Tab number={2}/><CodeKeyWords>new</CodeKeyWords>(<CodeValues>"<a href="https://wa.me/+61433881789">about:WhatsApp</a> or @NetByMarina"</CodeValues>),</>,
             <><Tab number={1}/>];</>,
             <br/>,
             <><Tab number={1}/><CodeKeyWords>private static void</CodeKeyWords> <CodeIdentifier>Display</CodeIdentifier>()</>,
@@ -156,11 +156,11 @@ export default function AboutMe({viewMode}){
             <span className="line-subtitle">Links & Contacts</span>,
             <ul className="text-line line-list">
                 <li>Resume: <a className="line-link" href="https://raw.githubusercontent.com/MarinaDotNet/marinadotnet.github.io/main/static/files/cv.pdf" title="download CV in PDF">CV in PDF</a></li>
-                <li>Static Portfolio: <a className="line-link" href="https://marinadotnet.github.io/static" title="look at my Static Portfolio">Static Portfolio</a></li>
+                <li>Static Portfolio: <a className="line-link" href="https://netbymarina.dev/static" title="look at my Static Portfolio">Static Portfolio</a></li>
                 <li>Email: <a className="line-link" href="mailto:msichova@outlook.com">Send to me an Email</a></li>
                 <li>GitHub: <a className="line-link" href="https://github.com/MarinaDotNet">Visit me at GitHub</a></li>
                 <li>LinkedIn: <a className="line-link" href="https://www.linkedin.com/in/marina-sichova-333599281?originalSubdomain=au">Visit me at LinkedIn</a></li>
-                <li>WhatsApp: <a className="line-link" href="https://wa.me/+61433881789">Contact via WhatsApp</a></li>
+                <li>WhatsApp: <a className="line-link" href="https://wa.me/+61433881789">Contact via WhatsApp</a> or @NetByMarina</li>
             </ul>,
             <br/>,
             <span className="text-line">---------------</span>,

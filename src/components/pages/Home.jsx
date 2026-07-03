@@ -9,7 +9,7 @@ export default function Home({ viewMode}){
             <><CodeKeyWords>using</CodeKeyWords> DevMindset.Focus;</>,
             <br/>,
             <><SingleComment>Tip: switch between views to explore different perspectives.</SingleComment></>,
-            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>MarinaDotNet</CodeIdentifier>;</>,
+            <><CodeKeyWords>namespace</CodeKeyWords> <CodeIdentifier>NetByMarina</CodeIdentifier>;</>,
             <br />,
             <><CodeKeyWords>class</CodeKeyWords> <CodeIdentifier>Program</CodeIdentifier></>,
             <>&#123;</>,
