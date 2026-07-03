@@ -2,6 +2,7 @@ import LightThemeIcon from "../jointLayoutComponents/LightThemeIcon";
 import DarkThemeIcon from "../jointLayoutComponents/DarkThemeIcon";
 import {ThemeContext} from "../ThemeContext";
 import {useContext} from "react";
+import Logo from "../../assets/logo_smallest.svg?react";
 
 import {Download, Github, Linkedin, Mail, Facebook, BriefcaseBusiness} from "lucide-react";
 
@@ -110,10 +111,9 @@ export default function SideBar(){
                     <button 
                     className="download-btn" 
                     title="Look at my simple/static Portfolio "
-                    onClick={() => {window.open("https://marinadotnet.github.io/static", "_blank");}}
+                    onClick={() => {window.open("https://netbymarina.dev/static", "_blank");}}
                     >
-                        <BriefcaseBusiness className="icon" />
-                        <span>Portfolio Static</span>
+                        <Logo/>
                     </button>
                 </div>
             </div>
